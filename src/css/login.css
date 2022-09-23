@@ -1,0 +1,25 @@
+.common-layout {
+    height: 100%;
+}
+
+.el-container {
+    height: 100%;
+}
+
+.user-login {
+    position: relative;
+    top: 20%;
+    text-align: center;
+}
+
+.login-aside {
+    background-image: url(../imgs/login_left.png);
+    background-repeat: no-repeat;
+
+    background-size: 50% 100%;
+    background-attachment: fixed
+}
+
+.login-main {
+    background-color: rgb(6, 6, 53);
+}
