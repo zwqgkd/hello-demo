@@ -13,7 +13,7 @@
 import {tabIndex,editableTabsValue,editableTabs,handleTabsEdit} from '../js/process'
 </script>
 
-<style src="../css/process.css">
+<style scoped src="../css/process.css">
 
 </style>
 
