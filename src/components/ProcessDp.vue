@@ -5,12 +5,14 @@
             {{ item.content }}
         </el-tab-pane>
     </el-tabs>
+    <ToolBar></ToolBar>
 </template>
 
     
 
 <script setup>
 import {tabIndex,editableTabsValue,editableTabs,handleTabsEdit} from '../js/process'
+import ToolBar from './ToolBar.vue';
 </script>
 
 <style scoped src="../css/process.css">
