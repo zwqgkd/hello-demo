@@ -2,6 +2,7 @@
     <span>流程展示区</span>
     <el-tabs v-model="editableTabsValue" type="card" editable class="demo-tabs" @edit="handleTabsEdit">
         <el-tab-pane v-for="item in editableTabs" :key="item.name" :label="item.title" :name="item.name">
+<<<<<<< Updated upstream
             
 
             <div class="Process-cont">
@@ -9,9 +10,14 @@
                 <ProcessContent></ProcessContent>
             </div>
 
-1
+
+=======
+>>>>>>> Stashed changes
         </el-tab-pane>
     </el-tabs>
+    
+    <ProcessContent></ProcessContent>
+
     <ToolBar></ToolBar>
 </template>
 
