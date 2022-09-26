@@ -1,13 +1,14 @@
-.flex-grow {
+/* .flex-grow {
     flex-grow: 1;
-}
+} */
 
 ul.el-menu.el-menu--horizontal.el-menu-demo {
     background-color: rgb(38, 13, 106);
     height: 100%;
+    width: 90%;
     border-bottom: 0px;
     position: relative;
-    left: 100px;
+    left: 10%;
 
 }
 
