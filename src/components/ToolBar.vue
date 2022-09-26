@@ -6,7 +6,7 @@
                 <el-icon>
                     <Back />
                 </el-icon>
-                <div><span style="font-size:10% ;">撤回</span></div>
+                <div><span style="font-size:80% ;">撤回</span></div>
             </button>
         </div>
 
@@ -15,7 +15,7 @@
                 <el-icon>
                     <CaretRight />
                 </el-icon>
-                <div><span style="font-size:10% ;">单次运行</span></div>
+                <div><span style="font-size:80% ;">单次运行</span></div>
             </button>
 
         </div>
@@ -24,7 +24,7 @@
                 <el-icon>
                     <Refresh />
                 </el-icon>
-                <div><span style="font-size:10% ;">循环运行</span></div>
+                <div><span style="font-size:80% ;">循环运行</span></div>
             </button>
 
         </div>
@@ -33,7 +33,7 @@
                 <el-icon>
                     <Right />
                 </el-icon>
-                <div><span style="font-size:10% ;">恢复</span></div>
+                <div><span style="font-size:80% ;">恢复</span></div>
             </button>
         </div>
 
