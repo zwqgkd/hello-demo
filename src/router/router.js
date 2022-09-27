@@ -36,16 +36,6 @@ const router = createRouter({
             name:'else',
             component:()=>import('../pages/menuPages/UserElse.vue')
         }
-        // {
-        //     path:'/lf',
-        //     name:'FlowDemo',
-        //     component:()=>import('../pages/FlowDemo.vue')
-        // },
-        // {
-        //     path:'/lf1',
-        //     name:'flow1',
-        //     component:()=>import('../pages/FlowDemo1.vue')
-        // }
     ]
 })
 

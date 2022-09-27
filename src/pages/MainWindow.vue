@@ -6,13 +6,13 @@
         <el-container>
             <el-header style="padding-left:0px;padding-right:0px;background-color:rgb(38, 13, 106);">
                 <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-                    <router-link to="/file"><el-menu-item index="1"><span style="color:aliceblue;">文件</span></el-menu-item></router-link>
-                    <el-menu-item index="2" @click="(event) => warn('111', event)"><span style="color:aliceblue;">系统</span></el-menu-item>
+                    <el-menu-item index="1"><span style="color:aliceblue;">文件</span></el-menu-item>
+                    <el-menu-item index="2" @click="jump(MSG_OS)"><span style="color:aliceblue;">系统</span></el-menu-item>
                     <el-menu-item index="3"><span style="color:aliceblue;">视图</span></el-menu-item>
                     <el-menu-item index="4"><span style="color:aliceblue;">其他</span></el-menu-item>
 
                 </el-menu>
-            </el-header>    
+            </el-header>
 
             <el-container>
                 <el-aside width="10%">
@@ -36,12 +36,17 @@
 
 </template>
 
-<script src="../js/main.js">
+<!-- <script setup>
+    import UserTools from '@/components/UserTools.vue';
+    import ProcessDp from '@/components/ProcessDp.vue';
+    import PictureDp from '@/components/PictureDp.vue';
+
+    import {jump} from '../js/mainWindow'
+
+</script> -->
+<script src="../js/mainWindow">
 
 </script>
-
-
-
 
 <style src="../css/main.css">
 
