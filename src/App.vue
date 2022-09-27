@@ -2,7 +2,7 @@
   <router-view></router-view>
 </template>
 
-<script>
+<!-- <script>
 
 var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]])
 
@@ -29,6 +29,10 @@ var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]])
         }
     },
   }
+</script> -->
+
+<script setup>
+
 </script>
 
   
