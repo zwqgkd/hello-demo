@@ -13,7 +13,7 @@ const router = createRouter({
         {
             path: '/main',
             name: 'main',
-            component: () => import('../pages/UserMain.vue'),
+            component: () => import('../pages/MainWindow.vue'),
         },
         {
             path:'/file',
@@ -49,3 +49,4 @@ const router = createRouter({
 })
 
 export default router
+
