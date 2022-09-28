@@ -16,9 +16,9 @@ const router = createRouter({
             component: () => import('../pages/MainWindow.vue'),
             children: [
                 {
-                    path: '/lf',
-                    name: 'lf',
-                    component: () => import('../components/UserLF.vue')
+                    path: '/processDp',
+                    name: 'process',
+                    component: () => import('../components/ProcessDp.vue')
                 },
             ]
         },
@@ -46,7 +46,12 @@ const router = createRouter({
             path: '/img',
             name: 'img',
             component: () => import('../components/UserImg.vue')
-        }
+        },
+        {
+            path: '/userLF',
+            name: 'lf',
+            component: () => import('../components/UserLF.vue')
+        },
     ]
 })
 

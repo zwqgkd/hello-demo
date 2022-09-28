@@ -1,12 +1,6 @@
 <template>
-    <div>
-        <!-- <div class="button-wrapper">
-            <button id="js_download-img" @click="downloadImage">下载快照</button>
-            <button id="js_download-xml" @click="downloadXML">下载xml</button>
-        </div> -->
 
-        <div id="lf"></div>
-    </div>
+    <div id="lf" style="height: 100%;"></div>
 </template>
 
 <script>

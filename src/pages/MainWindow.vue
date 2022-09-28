@@ -19,22 +19,9 @@
             </el-header>
 
             <el-main>
+
                 <router-view></router-view>
-                <!-- <el-aside width="10%">
-                    <UserTools></UserTools>
-                </el-aside>
 
-                <el-main>
-                    <el-container>
-                        <el-aside width="50%">
-                            <ProcessDp></ProcessDp>
-                        </el-aside>
-
-                        <el-main>
-                            <PictureDp></PictureDp>
-                        </el-main>
-                    </el-container>
-                </el-main> -->
             </el-main>
         </el-container>
     </div>
@@ -42,16 +29,9 @@
 </template>
 
 <script setup>
-    import UserTools from '@/components/UserTools.vue';
-    import ProcessDp from '@/components/ProcessDp.vue';
-    import PictureDp from '@/components/PictureDp.vue';
-
     import {jump} from '../js/mainWindow'
-
 </script>
-<!-- <script src="../js/mainWindow">
 
-</script> -->
 
 <style src="../css/mainWindow.css">
 

@@ -1,27 +1,22 @@
 import { ref } from 'vue'
 
-let tabIndex = 2
-const editableTabsValue = ref('2')
+let tabIndex = 1
+const editableTabsValue = ref('1')
 const editableTabs = ref([
     {
-        title: '流程1',
+        title: '流程 1',
         name: '1',
-        content: 'Tab 1 content',
-    },
-    {
-        title: '流程2',
-        name: '2',
-        content: 'Tab 2 content',
-    },
+        content: `<iframe src='#/userLF' width='100%' height='1000px' scrolling='auto'></iframe>`,
+    }
 ])
 
 const handleTabsEdit = (targetName, action) => {
     if (action === 'add') {
         const newTabName = `${++tabIndex}`
         editableTabs.value.push({
-            title: '流程' + tabIndex,
+            title: '流程 '+tabIndex,
             name: newTabName,
-            content: 'New Tab content',
+            content: `<iframe src='#/userLF' width='100%' height='1000px' scrolling='auto'></iframe>`
         })
         editableTabsValue.value = newTabName
     } else if (action === 'remove') {
@@ -43,4 +38,4 @@ const handleTabsEdit = (targetName, action) => {
     }
 }
 
-export {tabIndex,editableTabsValue,editableTabs,handleTabsEdit}
+export { tabIndex, editableTabsValue, editableTabs, handleTabsEdit }

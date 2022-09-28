@@ -7,24 +7,11 @@ const MapData = [
     ['MSG_OS', '/os'],
     ['MSG_VIEW', '/view'],
     ['MSG_ELSE', '/else'],
-    ['MSG_LF', '/lf'],
+    ['MSG_LF', '/processDp'],
     ['MSG_IMG', '/img'],
 ]
 
 var m = new Map(MapData)
-// export default {
-//     data() {
-//         return {
-//             m
-//         }
-//     },
-//     methods: {
-//         jump(message) {
-//             let target=m.get(message)
-//             router.push(target)
-//         }
-//     }
-// }
 
 function jump(message){
     let adr=m.get(message)
