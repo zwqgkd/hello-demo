@@ -1,4 +1,4 @@
-import {createRouter,createWebHashHistory,createWebHistory} from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 
 const router = createRouter({
     // history: createWebHistory(),
@@ -14,27 +14,38 @@ const router = createRouter({
             path: '/main',
             name: 'main',
             component: () => import('../pages/MainWindow.vue'),
-            
+            children: [
+                {
+                    path: '/lf',
+                    name: 'lf',
+                    component: () => import('../components/UserLF.vue')
+                },
+            ]
         },
         {
-            path:'/file',
-            name:'file',
-            component:()=>import('../pages/menuPages/UserFile.vue')
+            path: '/file',
+            name: 'file',
+            component: () => import('../pages/menuPages/UserFile.vue')
         },
         {
-            path:'/os',
-            name:'os',
-            component:()=>import('../pages/menuPages/UserOS.vue')
+            path: '/os',
+            name: 'os',
+            component: () => import('../pages/menuPages/UserOS.vue')
         },
         {
-            path:'/view',
-            name:'view',
-            component:()=>import('../pages/menuPages/UserView.vue')
+            path: '/view',
+            name: 'view',
+            component: () => import('../pages/menuPages/UserView.vue')
         },
         {
-            path:'/else',
-            name:'else',
-            component:()=>import('../pages/menuPages/UserElse.vue')
+            path: '/else',
+            name: 'else',
+            component: () => import('../pages/menuPages/UserElse.vue')
+        },
+        {
+            path: '/img',
+            name: 'img',
+            component: () => import('../components/UserImg.vue')
         }
     ]
 })

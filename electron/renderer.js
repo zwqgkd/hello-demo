@@ -5,6 +5,8 @@ import router from '../src/router/router'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import '@logicflow/core/dist/style/index.css'
+import '@logicflow/extension/lib/style/index.css'
 
 
 

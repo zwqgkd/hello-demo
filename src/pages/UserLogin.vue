@@ -24,7 +24,7 @@
 
                         <button data-v-659840cf="" type="submit" class="login-btn" @click="userVerify"
                             style="width: 50%; margin-top: 30px;height: 40px;background-color: rgb(53, 28, 177);">
-                            <span style="color:aliceblue;">登 录</span>
+                            <span style="color:aliceblue;" >登 录</span>
                         </button>
 
                     </div>

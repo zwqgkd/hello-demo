@@ -1,6 +1,9 @@
 /* .flex-grow {
     flex-grow: 1;
 } */
+.el-header{
+    --el-header-height: 80px;
+}
 
 ul.el-menu.el-menu--horizontal.el-menu-demo {
     background-color: rgb(38, 13, 106);
@@ -8,7 +11,7 @@ ul.el-menu.el-menu--horizontal.el-menu-demo {
     width: 90%;
     border-bottom: 0px;
     position: relative;
-    left: 10%;
+    left: 6%;
 
 }
 
@@ -21,5 +24,5 @@ ul.el-menu.el-menu--horizontal.el-menu-demo :hover {
     --el-color-primary-light-9: rgb(51, 19, 138)
 }
 .el-main{
-    padding:0px
+    padding:0px;
 }
