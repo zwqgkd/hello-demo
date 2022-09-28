@@ -10,7 +10,9 @@
   "dependencies": {
     "@logicflow/core": "^1.1.28",
     "@logicflow/extension": "^1.1.28",
-    "electron": "^20.1.4",
+    "electron": "^20.2.0",
+    "electron-build": "0.0.3",
+    "electron-builder": "^23.3.3",
     "element-plus": "^2.2.16",
     "vue": "^3.2.38",
     "vue-router": "^4.1.5"
