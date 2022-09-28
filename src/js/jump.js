@@ -11,7 +11,6 @@ const MapData = [
     ['MSG_LF', '/processDp'],
     ['MSG_IMG', '/img'],
 ]
-
 var m = new Map(MapData)
 
 function jump(message){
@@ -19,6 +18,8 @@ function jump(message){
     router.push(adr)
 }
 export {jump}
+
+
 
 
 

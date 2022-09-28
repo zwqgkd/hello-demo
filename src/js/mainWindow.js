@@ -1,23 +1,10 @@
-import router from "../router/router";
 
+import {jump} from './jump'
 
-const MapData = [
-    ['MSG_ENDLOGIN', '/main'],
-    ['MSG_FILE', '/file'],
-    ['MSG_OS', '/os'],
-    ['MSG_VIEW', '/view'],
-    ['MSG_ELSE', '/else'],
-    ['MSG_LF', '/processDp'],
-    ['MSG_IMG', '/img'],
-]
-
-var m = new Map(MapData)
-
-function jump(message){
-    let adr=m.get(message)
-    router.push(adr)
+function goTo(message){
+    jump(message)
 }
-export {jump}
+export {goTo}
 
 
 
