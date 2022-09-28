@@ -1,10 +1,9 @@
 import { ref } from 'vue'
-import router from '../router/router';
+import {jump} from './jump'
 const account = ref()
 const password = ref()
-function userVerify() {
-    console.log(1111)
+function userVerify(message) {
     console.log(account, password)
-    router.push('/main')
+    jump(message)
 }
 export {account,password,userVerify}
