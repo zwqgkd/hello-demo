@@ -21,10 +21,10 @@
                     </div>
                     <!-- 登录页面跳转到主页面 -->
                     <div>
-
-                        <button data-v-659840cf="" type="submit" class="login-btn" @click="userVerify('MSG_ENDLOGIN')"
+                        <button data-v-659840cf="" type="submit" class="login-btn"
+                            @click="onLoginBtnClick('MSG_ENDLOGIN')"
                             style="width: 50%; margin-top: 30px;height: 40px;background-color: rgb(53, 28, 177);">
-                            <span style="color:aliceblue;" >登 录</span>
+                            <span style="color:aliceblue;">登 录</span>
                         </button>
 
                     </div>
@@ -35,10 +35,34 @@
 </template>
 
 <script setup>
-import  {account,password,userVerify} from '../js/login'
+    import { account, password, onLoginBtnClick } from '../js/login'
 
 </script>
 
-<style src="../css/login.css">
+<style>
+    .common-layout {
+        height: 100%;
+    }
 
+    .el-container {
+        height: 100%;
+    }
+
+    .user-login {
+        position: relative;
+        top: 20%;
+        text-align: center;
+    }
+
+    .login-aside {
+        background-image: url(../imgs/login_left.png);
+        background-repeat: no-repeat;
+
+        background-size: 50% 100%;
+        background-attachment: fixed
+    }
+
+    .login-main {
+        background-color: rgb(6, 6, 53);
+    }
 </style>
