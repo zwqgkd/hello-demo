@@ -8,8 +8,8 @@ const router = createRouter({
         {
             path: '/',
             name: 'login',
+            component: () => import('../pages/LoginWindow.vue')
             // component: () => import('../components/ProcessDp.vue')
-            component:()=>import('../pages/LoginWindow.vue')
         },
         {
             path: '/main',
