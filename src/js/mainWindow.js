@@ -1,10 +1,10 @@
 
 import {jump} from './jump'
 
-function goTo(message){
+function onMenuClick(message){
     jump(message)
 }
-export {goTo}
+export {onMenuClick}
 
 
 

@@ -10,15 +10,15 @@
                 <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
                     <el-menu-item index="1" @click="newOpen"><span style="color:aliceblue;">文件</span>
                     </el-menu-item>
-                    <el-menu-item index="2" @click="goTo('MSG_OS')"><span style="color:aliceblue;">系统</span>
+                    <el-menu-item index="2" @click="onMenuClick('MSG_OS')"><span style="color:aliceblue;">系统</span>
                     </el-menu-item>
-                    <el-menu-item index="3" @click="goTo('MSG_VIEW')"><span style="color:aliceblue;">视图</span>
+                    <el-menu-item index="3" @click="onMenuClick('MSG_VIEW')"><span style="color:aliceblue;">视图</span>
                     </el-menu-item>
-                    <el-menu-item index="4" @click="goTo('MSG_ELSE')"><span style="color:aliceblue;">其他</span>
+                    <el-menu-item index="4" @click="onMenuClick('MSG_ELSE')"><span style="color:aliceblue;">其他</span>
                     </el-menu-item>
-                    <el-menu-item index="5" @click="goTo('MSG_LF')"><span style="color:aliceblue;">流程图</span>
+                    <el-menu-item index="5" @click="onMenuClick('MSG_LF')"><span style="color:aliceblue;">流程图</span>
                     </el-menu-item>
-                    <el-menu-item index="6" @click="goTo('MSG_IMG')"><span style="color:aliceblue;">图片展示</span>
+                    <el-menu-item index="6" @click="onMenuClick('MSG_IMG')"><span style="color:aliceblue;">图片展示</span>
                     </el-menu-item>
 
                 </el-menu>
@@ -35,7 +35,7 @@
 </template>
 
 <script setup>
-    import { goTo } from '../js/mainWindow'
+    import { onMenuClick } from '../js/mainWindow'
     const newOpen = function () {
         window.open('#/file', '_blank', 'height=600,width=600');
     }
