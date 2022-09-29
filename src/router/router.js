@@ -9,6 +9,7 @@ const router = createRouter({
             path: '/',
             name: 'login',
             component: () => import('../pages/LoginWindow.vue')
+            // component: () => import('../components/ProcessDp.vue')
         },
         {
             path: '/main',

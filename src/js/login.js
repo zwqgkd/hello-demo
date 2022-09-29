@@ -2,8 +2,8 @@ import { ref } from 'vue'
 import {jump} from './jump'
 const account = ref()
 const password = ref()
-function userVerify(message) {
+function onLoginBtnClick(message) {
     console.log(account, password)
     jump(message)
 }
-export {account,password,userVerify}
+export {account,password,onLoginBtnClick}
