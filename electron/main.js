@@ -8,7 +8,7 @@ const createWindow = () => {
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
-    frame:false
+    frame:true
   });
   win.loadFile("./dist/index.html");
 };

@@ -10,7 +10,7 @@
 
 
 <script setup>
-    import { tabIndex, editableTabsValue, editableTabs, handleTabsEdit } from '../js/process'
+    import { tabIndex, editableTabsValue, editableTabs, handleTabsEdit } from './process'
 // import ToolBar from './ToolBar.vue';
 
 

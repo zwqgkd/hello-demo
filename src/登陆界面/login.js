@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import {jump} from './jump'
+import {jump} from '../../sys/jump'
 const account = ref()
 const password = ref()
 function onLoginBtnClick(message) {

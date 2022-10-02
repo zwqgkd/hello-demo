@@ -2,7 +2,7 @@
 
 
     <div class="common-layout">
-        <img style="position:absolute;left:0px;top:0px" src="../imgs/logo_small.png" />
+        <img style="position:absolute;left:0px;top:0px" src="./img/logo_small.png" />
         <el-container>
             <el-header style="padding-left:0px;padding-right:0px;background-color:rgb(38, 13, 106);">
 
@@ -35,7 +35,7 @@
 </template>
 
 <script setup>
-    import { onMenuClick } from '../js/mainWindow'
+    import { onMenuClick } from './mainWindow'
     const newOpen = function () {
         window.open('#/file', '_blank', 'height=600,width=600');
     }

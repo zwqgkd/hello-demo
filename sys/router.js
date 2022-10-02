@@ -8,50 +8,50 @@ const router = createRouter({
         {
             path: '/',
             name: 'login',
-            component: () => import('../pages/LoginWindow.vue')
+            component: () => import('@/登陆界面/LoginWindow.vue')
             // component: () => import('../components/ProcessDp.vue')
         },
         {
             path: '/main',
             name: 'main',
-            component: () => import('../pages/MainWindow.vue'),
+            component: () => import('@/主界面/MainWindow.vue'),
             children: [
                 {
                     path: '/processDp',
                     name: 'process',
-                    component: () => import('../components/ProcessDp.vue')
+                    component: () => import('@/流程图界面/ProcessDp.vue')
                 },
             ]
         },
         {
             path: '/file',
             name: 'file',
-            component: () => import('../pages/menuPages/UserFile.vue')
+            component: () => import('@/主界面/components/UserFile.vue')
         },
         {
             path: '/os',
             name: 'os',
-            component: () => import('../pages/menuPages/UserOS.vue')
+            component: () => import('@/主界面/components/UserOS.vue')
         },
         {
             path: '/view',
             name: 'view',
-            component: () => import('../pages/menuPages/UserView.vue')
+            component: () => import('@/主界面/components/UserView.vue')
         },
         {
             path: '/else',
             name: 'else',
-            component: () => import('../pages/menuPages/UserElse.vue')
+            component: () => import('@/主界面/components/UserElse.vue')
         },
         {
             path: '/img',
             name: 'img',
-            component: () => import('../components/UserImg.vue')
+            component: () => import('@/主界面/components/UserImg.vue')
         },
         {
             path: '/userLF',
             name: 'lf',
-            component: () => import('../components/UserLF.vue')
+            component: () => import('@/流程图界面/components/UserLF.vue')
         },
     ]
 })

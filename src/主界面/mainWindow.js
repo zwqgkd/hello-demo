@@ -1,5 +1,5 @@
 
-import {jump} from './jump'
+import {jump} from '../../sys/jump'
 
 function onMenuClick(message){
     jump(message)

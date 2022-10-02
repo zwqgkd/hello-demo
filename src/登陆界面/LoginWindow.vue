@@ -7,7 +7,7 @@
             <el-main class="login-main">
                 <div class="user-login">
                     <div class="user-login-top">
-                        <img class="logo" src="../imgs/login_logo.png">
+                        <img class="logo" src="./img/login_logo.png">
                         <div> <span style="font-size: 2rem; color: azure;">格力工业视觉算法平台</span></div>
 
                     </div>
@@ -35,7 +35,7 @@
 </template>
 
 <script setup>
-    import { account, password, onLoginBtnClick } from '../js/login'
+    import { account, password, onLoginBtnClick } from './login'
 
 </script>
 
@@ -55,7 +55,7 @@
     }
 
     .login-aside {
-        background-image: url(../imgs/login_left.png);
+        background-image: url(./img/login_left.png);
         background-repeat: no-repeat;
 
         background-size: 50% 100%;
