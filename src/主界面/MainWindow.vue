@@ -56,15 +56,19 @@
             </el-header>
 
 
-            <el-main>
+            <el-main class="main-window-content">
                 <el-container>
                     <el-aside width="50%">
                         <ProcessDp></ProcessDp>
 
                     </el-aside>
+
                     <el-container>
                         <el-header height="50%">
-                            图片展示区
+                            <div>
+                                图片展示区
+                            </div>
+
                         </el-header>
                         <el-main>
                             结果展示区
@@ -95,6 +99,10 @@ const newOpen = function () {
 <style>
 .el-header {
     --el-header-height: 80px;
+}
+
+.common-layout {
+    height: 100%;
 }
 
 

@@ -26,5 +26,12 @@
         font-weight: 600;
     }
 
+    .el-tabs.el-tabs--top.el-tabs--card.demo-tabs {
+        height: 100%;
+    }
+    .el-tab-pane{
+        height: 100%;
+    }
+
 
 </style>

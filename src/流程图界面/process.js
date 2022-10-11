@@ -6,7 +6,7 @@ const editableTabs = ref([
     {
         title: '流程 1',
         name: '1',
-        content: `<iframe src='#/userLF' width='100%' height='1000px'></iframe>`,
+        content: `<iframe src='#/userLF' width='100%' height="100%"></iframe>`,
     }
 ])
 

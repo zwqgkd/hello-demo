@@ -1,6 +1,6 @@
 <template>
 
-    <div id="lf"></div>
+    <div id="lf" style="height: 100%"></div>
 </template>
 
 <script>
