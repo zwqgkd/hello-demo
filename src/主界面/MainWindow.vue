@@ -22,7 +22,8 @@
 <!--                        </el-header>-->
 
             <el-header style="padding-left:0px;padding-right:0px;background-color:rgb(38, 13, 106);">
-                <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+                <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal"
+                         @select="handleSelect" >
                     <el-sub-menu index="1">
                         <template #title><span style="color:aliceblue">文件</span></template>
                         <el-menu-item><span>1-1</span></el-menu-item>
