@@ -17,9 +17,7 @@
 </script>
 
 <style scoped>
-    .Process-cont {
-        height: 100%;
-    }
+
 
     .demo-tabs>.el-tabs__content {
         padding: 32px;
@@ -28,8 +26,5 @@
         font-weight: 600;
     }
 
-    .el-tabs__nav-scroll {
-        position: relative;
-        left: 20%;
-    }
+
 </style>

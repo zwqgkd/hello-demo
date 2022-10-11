@@ -35,7 +35,7 @@
 </template>
 
 <script setup>
-    import { account, password, onLoginBtnClick } from './login'
+    import {onLoginBtnClick } from './login'
 
 </script>
 

@@ -23,31 +23,31 @@ const router = createRouter({
                 },
             ]
         },
-        {
-            path: '/file',
-            name: 'file',
-            component: () => import('@/主界面/components/UserFile.vue')
-        },
-        {
-            path: '/os',
-            name: 'os',
-            component: () => import('@/主界面/components/UserOS.vue')
-        },
-        {
-            path: '/view',
-            name: 'view',
-            component: () => import('@/主界面/components/UserView.vue')
-        },
-        {
-            path: '/else',
-            name: 'else',
-            component: () => import('@/主界面/components/UserElse.vue')
-        },
-        {
-            path: '/img',
-            name: 'img',
-            component: () => import('@/主界面/components/UserImg.vue')
-        },
+        // {
+        //     path: '/file',
+        //     name: 'file',
+        //     component: () => import('@/主界面/components/UserFile.vue')
+        // },
+        // {
+        //     path: '/os',
+        //     name: 'os',
+        //     component: () => import('@/主界面/components/UserOS.vue')
+        // },
+        // {
+        //     path: '/view',
+        //     name: 'view',
+        //     component: () => import('@/主界面/components/UserView.vue')
+        // },
+        // {
+        //     path: '/else',
+        //     name: 'else',
+        //     component: () => import('@/主界面/components/UserElse.vue')
+        // },
+        // {
+        //     path: '/img',
+        //     name: 'img',
+        //     component: () => import('@/主界面/components/UserImg.vue')
+        // },
         {
             path: '/userLF',
             name: 'lf',

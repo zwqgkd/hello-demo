@@ -1,6 +1,6 @@
 <template>
 
-    <div id="lf" style="height: 100%;"></div>
+    <div id="lf"></div>
 </template>
 
 <script>
@@ -190,9 +190,5 @@ export default {
 </script>
 
 <style>
-.container {
-    width: 100px;
-    height: 100px;
-    outline: none;
-}
+
 </style>

@@ -6,7 +6,7 @@ const editableTabs = ref([
     {
         title: '流程 1',
         name: '1',
-        content: `<iframe src='#/userLF' width='100%' height='1000px' scrolling='auto'></iframe>`,
+        content: `<iframe src='#/userLF' width='100%' height='1000px'></iframe>`,
     }
 ])
 
@@ -16,7 +16,7 @@ const handleTabsEdit = (targetName, action) => {
         editableTabs.value.push({
             title: '流程 '+tabIndex,
             name: newTabName,
-            content: `<iframe src='#/userLF' width='100%' height='1000px' scrolling='auto'></iframe>`
+            content: `<iframe src='#/userLF' width='100%' height='1000px'></iframe>`
         })
         editableTabsValue.value = newTabName
     } else if (action === 'remove') {
