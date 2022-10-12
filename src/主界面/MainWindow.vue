@@ -48,10 +48,14 @@
 
                     <el-menu-item index="4"><span style="color:aliceblue;">其他</span>
                     </el-menu-item>
-                    <el-menu-item index="5" ><span style="color:aliceblue;" @click="onMenuClick('MSG_LF')">流程图</span>
+                    <el-menu-item index="5"><span style="color:aliceblue;" @click="onMenuClick('MSG_LF')">流程图</span>
                     </el-menu-item>
-                    <el-menu-item index="6"><span style="color:aliceblue;">图片展示</span>
-                    </el-menu-item>
+
+                    <el-sub-menu index="6">
+                        <template #title><span style="color:aliceblue">布局</span></template>
+                        <el-menu-item @click="layout1"><span>1-1</span></el-menu-item>
+                    </el-sub-menu>
+
                 </el-menu>
             </el-header>
 
@@ -59,23 +63,21 @@
             <el-main class="main-window-content">
                 <el-container>
                     <el-aside width="50%">
-                        <ProcessDp></ProcessDp>
-
+                        <component :is="compnts[0]"></component>
                     </el-aside>
 
                     <el-container>
+<!--                        图片展示区-->
                         <el-header height="50%">
-                            <div>
-                                图片展示区
-                            </div>
-
+                            <component :is="compnts[1]"></component>
                         </el-header>
+<!--                        结果展示区-->
                         <el-main>
-                            结果展示区
+                            <component :is="compnts[2]"></component>
                         </el-main>
                     </el-container>
                 </el-container>
-<!--                <router-view></router-view>-->
+                <!--                <router-view></router-view>-->
             </el-main>
         </el-container>
     </div>
@@ -86,13 +88,32 @@
 
 import {onMenuClick} from './mainWindow.js'
 import ProcessDp from '@/流程图界面/ProcessDp.vue'
+import PicWindow from "@/图片展示区/PicWindow.vue";
+import ResultWindow from "@/结果展示区/ResultWindow.vue";
+import {ref} from 'vue'
+
+let compnts=ref([
+    ProcessDp,
+    PicWindow,
+    ResultWindow
+])
+
+function layout1(){
+    compnts.value[0]=ProcessDp
+    compnts.value[1]=ResultWindow
+    compnts.value[2]=PicWindow
+}
+
+
 // import {onMounted} from "vue";
 // onMounted(()=>{
 //
 // })
-const newOpen = function () {
-    window.open('#/file', '_blank', 'height=600,width=600');
-}
+// const newOpen = function () {
+//     window.open('#/file', '_blank', 'height=600,width=600');
+// }
+
+
 </script>
 
 
