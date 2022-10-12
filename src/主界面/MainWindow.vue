@@ -57,6 +57,27 @@
                     </el-sub-menu>
 
                 </el-menu>
+
+                <el-menu :default-active="activeIndex" class="el-menu-demo1" mode="horizontal"
+                         @select="handleSelect">
+
+                    <el-menu-item index="1">
+                        <el-icon style="color:aliceblue;"><House /></el-icon>
+                    </el-menu-item>
+                    <el-menu-item index="2">
+                        <el-icon style="color:aliceblue;"><Minus /></el-icon>
+                    </el-menu-item>
+                    <el-menu-item index="3">
+                        <el-icon style="color:aliceblue;"><CirclePlus /></el-icon>
+                    </el-menu-item>
+                    <el-menu-item index="4">
+                        <el-icon style="color:aliceblue;"><Search /></el-icon>
+                    </el-menu-item>
+                    <el-menu-item index="5">
+                        <el-icon style="color:aliceblue;"><Aim /></el-icon>
+                    </el-menu-item>
+                </el-menu>
+
             </el-header>
 
 
@@ -129,12 +150,15 @@ function layout1(){
 
 ul.el-menu.el-menu--horizontal.el-menu-demo {
     background-color: rgb(38, 13, 106);
-    height: 100%;
-    width: 90%;
-    border-bottom: 0px;
+    margin-right: 0;
+    height: 40%;
+    width: 100%;
+    border-bottom:1px solid #f6f2f2;
     position: relative;
     left: 6%;
-
+}
+.el-menu-demo1 span{
+    height: 100%;
 }
 
 ul.el-menu.el-menu--horizontal.el-menu-demo :hover {
@@ -142,11 +166,27 @@ ul.el-menu.el-menu--horizontal.el-menu-demo :hover {
 }
 
 
+
 :root {
-    --el-color-primary-light-9: rgb(51, 19, 138)
+    --el-color-primary-light-9: rgb(38, 13, 106);
+    --el-color-primary:rgb(38, 13, 106)
 }
 
 .el-main {
     padding: 0px;
 }
+
+ul.el-menu.el-menu--horizontal.el-menu-demo1 {
+    background-color: rgb(38, 13, 106);
+    margin-right: 0;
+    height: 60%;
+    width: 100%;
+    border-bottom:1px solid #f6f2f2;
+    position: relative;
+    left: 6%;
+}
+ul.el-menu.el-menu--horizontal.el-menu-demo1 :hover {
+    background-color: rgb(23, 4, 73);
+}
+
 </style>
