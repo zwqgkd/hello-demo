@@ -4,10 +4,11 @@
 </template>
 
 <script>
-import {Menu, BpmnElement, DndPanel, SelectionSelect, Control, MiniMap, Snapshot} from '@logicflow/extension'
+import {Menu, BpmnElement, SelectionSelect, Control, MiniMap, Snapshot} from '@logicflow/extension'
 import {lfJson2Xml} from '@logicflow/extension'
 import {LogicFlow, PolygonNode, PolygonNodeModel, RectNode, RectNodeModel} from '@logicflow/core'
 import {SuanziPanel} from './SuanziPanel.js'
+import {FlowCharPanel} from './FlowCharPanel.js'
 
 class TriangleModel extends PolygonNodeModel { // 三角形
     setAttributes() {
@@ -55,7 +56,7 @@ export default {
             const lf = new LogicFlow({
                 container: document.querySelector("#lf"),
                 height: this.initHeight,
-                plugins: [Menu, BpmnElement, DndPanel, SelectionSelect, Control, MiniMap, Snapshot, SuanziPanel],
+                plugins: [Menu, BpmnElement, FlowCharPanel, SelectionSelect, Control, MiniMap, Snapshot, SuanziPanel],
                 background: {
                     color: '#2b364a' // 网格背景颜色
                 },
@@ -74,20 +75,20 @@ export default {
                 {
                     type: "suanzi",
                     text: "算子一",
-                    label: "算子一节点",
+                    label: "算子一",
                     icon:
                         "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAEFVwZaAAAABGdBTUEAALGPC/xhBQAAAqlJREFUOBF9VM9rE0EUfrMJNUKLihGbpLGtaCOIR8VjQMGDePCgCCIiCNqzCAp2MyYUCXhUtF5E0D+g1t48qAd7CCLqQUQKEWkStcEfVGlLdp/fm3aW2QQdyLzf33zz5m2IsAZ9XhDpyaaIZkTS4ASzK41TFao88GuJ3hsr2pAbipHxuSYyKRugagICGANkfFnNh3HeE2N0b3nN2cgnpcictw5veJIzxmDamSlxxQZicq/mflxhbaH8BLRbuRwNtZp0JAhoplVRUdzmCe/vO27wFuuA3S5qXruGdboy5/PRGFsbFGKo/haRtQHIrM83bVeTrOgNhZReWaYGnE4aUQgTJNvijJFF4jQ8BxJE5xfKatZWmZcTQ+BVgh7s8SgPlCkcec4mGTmieTP4xd7PcpIEg1TX6gdeLW8rTVMVLVvb7ctXoH0Cydl2QOPJBG21STE5OsnbweVYzAnD3A7PVILuY0yiiyDwSm2g441r6rMSgp6iK42yqroI2QoXeJVeA+YeZSa47gZdXaZWQKTrG93rukk/l2Al6Kzh5AZEl7dDQy+JjgFahQjRopSxPbrbvK7GRe9ePWBo1wcU7sYrFZtavXALwGw/7Dnc50urrHJuTPSoO2IMV3gUQGNg87IbSOIY9BpiT9HV7FCZ94nPXb3MSnwHn/FFFE1vG6DTby+r31KAkUktB3Qf6ikUPWxW1BkXSPQeMHHiW0+HAd2GelJsZz1OJegCxqzl+CLVHa/IibuHeJ1HAKzhuDR+ymNaRFM+4jU6UWKXorRmbyqkq/D76FffevwdCp+jN3UAN/C9JRVTDuOxC/oh+EdMnqIOrlYteKSfadVRGLJFJPSB/ti/6K8f0CNymg/iH2gO/f0DwE0yjAFO6l8JaR5j0VPwPwfaYHqOqrCI319WzwhwzNW/aQAAAABJRU5ErkJggg=="
                 },
                 {
                     type: 'suanzi',
                     text: '算子二',
-                    label: '算子二节点',
+                    label: '算子二',
                     icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAEFVwZaAAAABGdBTUEAALGPC/xhBQAAAqlJREFUOBF9VM9rE0EUfrMJNUKLihGbpLGtaCOIR8VjQMGDePCgCCIiCNqzCAp2MyYUCXhUtF5E0D+g1t48qAd7CCLqQUQKEWkStcEfVGlLdp/fm3aW2QQdyLzf33zz5m2IsAZ9XhDpyaaIZkTS4ASzK41TFao88GuJ3hsr2pAbipHxuSYyKRugagICGANkfFnNh3HeE2N0b3nN2cgnpcictw5veJIzxmDamSlxxQZicq/mflxhbaH8BLRbuRwNtZp0JAhoplVRUdzmCe/vO27wFuuA3S5qXruGdboy5/PRGFsbFGKo/haRtQHIrM83bVeTrOgNhZReWaYGnE4aUQgTJNvijJFF4jQ8BxJE5xfKatZWmZcTQ+BVgh7s8SgPlCkcec4mGTmieTP4xd7PcpIEg1TX6gdeLW8rTVMVLVvb7ctXoH0Cydl2QOPJBG21STE5OsnbweVYzAnD3A7PVILuY0yiiyDwSm2g441r6rMSgp6iK42yqroI2QoXeJVeA+YeZSa47gZdXaZWQKTrG93rukk/l2Al6Kzh5AZEl7dDQy+JjgFahQjRopSxPbrbvK7GRe9ePWBo1wcU7sYrFZtavXALwGw/7Dnc50urrHJuTPSoO2IMV3gUQGNg87IbSOIY9BpiT9HV7FCZ94nPXb3MSnwHn/FFFE1vG6DTby+r31KAkUktB3Qf6ikUPWxW1BkXSPQeMHHiW0+HAd2GelJsZz1OJegCxqzl+CLVHa/IibuHeJ1HAKzhuDR+ymNaRFM+4jU6UWKXorRmbyqkq/D76FffevwdCp+jN3UAN/C9JRVTDuOxC/oh+EdMnqIOrlYteKSfadVRGLJFJPSB/ti/6K8f0CNymg/iH2gO/f0DwE0yjAFO6l8JaR5j0VPwPwfaYHqOqrCI319WzwhwzNW/aQAAAABJRU5ErkJggg=='
                 },
             ])
 
             // 设置节点面板
-            lf.extension.dndPanel.setPatternItems([
+            lf.extension.flowCharPanel.setPatternItems([
                 {
                     label: "选区",
                     icon:
@@ -204,20 +205,11 @@ export default {
 </script>
 
 <style>
-.container {
-    width: 100px;
-    height: 100px;
-    outline: none;
-}
 
 .custom-minimap {
     background-image: url(sys/logo.png);
 }
 
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 400px;
-}
 
 .btn-list-group {
     position: absolute;
@@ -232,14 +224,20 @@ export default {
 }
 
 .btn-list-group:hover .btn-list-area {
-    display: block;
+    display: inline-flex;
+}
+
+.toolsPanel {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
 }
 
 .btn {
     display: inline-block;
     padding: .4em .7em;
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 10px;
+    font-weight: 200;
     color: #6c757d;
     text-align: center;
     line-height: 1.5;
