@@ -1,0 +1,12 @@
+1. 导航栏添加icon图片
+
+    iconClass: "custom-minimap"用css
+    .custom-minimap {
+        background-image: url(sys/logo.png);
+    }
+
+
+2. 将算子写成可拖动格式
+打算将算子块放在dndpanel一起后 再用css分开，才有可拖动
+
+从新写个类继承dndpanel实现不了拖动效果

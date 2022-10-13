@@ -1,5 +1,5 @@
-const SuanziPanel = (function () {
-    function SuanziPanel(_a) {
+const FlowCharPanel = (function () {
+    function FlowCharPanel(_a) {
         var _this = this;
         var lf = _a.lf;
         this.lf = lf;
@@ -7,7 +7,7 @@ const SuanziPanel = (function () {
             _this.setPatternItems(shapeList);
         };
     }
-    SuanziPanel.prototype.render = function (lf, domContainer) {
+    FlowCharPanel.prototype.render = function (lf, domContainer) {
         var _this = this;
         this.destroy();
 
@@ -16,7 +16,7 @@ const SuanziPanel = (function () {
         this.elmenu.className = 'btn-list-group lf-dndpanel toolsPanel'
 
         this.elmenua = document.createElement('div')
-        this.elmenua.textContent = "算子"
+        this.elmenua.textContent = "图形"
         this.elmenua.className = 'btn'
         this.elmenu.appendChild(this.elmenua)
 
@@ -42,19 +42,19 @@ const SuanziPanel = (function () {
         domContainer.appendChild(this.elmenu);
         this.domContainer = domContainer;
     };
-    SuanziPanel.prototype.destroy = function () {
+    FlowCharPanel.prototype.destroy = function () {
         if (this.domContainer && this.elmenu && this.domContainer.contains(this.elmenu)) {
             this.domContainer.removeChild(this.elmenu);
         }
     };
-    SuanziPanel.prototype.setPatternItems = function (shapeList) {
+    FlowCharPanel.prototype.setPatternItems = function (shapeList) {
         this.shapeList = shapeList;
         // 支持渲染后重新设置拖拽面板
         if (this.domContainer) {
             this.render(this.lf, this.domContainer);
         }
     };
-    SuanziPanel.prototype.createDndItem = function (shapeItem) {
+    FlowCharPanel.prototype.createDndItem = function (shapeItem) {
 
         var _this = this;
         var el = document.createElement('div');
@@ -86,8 +86,8 @@ const SuanziPanel = (function () {
         };
         return el;
     };
-    SuanziPanel.pluginName = 'suanziPanel';
-    return SuanziPanel;
+    FlowCharPanel.pluginName = 'flowCharPanel';
+    return FlowCharPanel;
 }());
 
-export {SuanziPanel};
+export {FlowCharPanel};
