@@ -90,7 +90,8 @@
 </template>
 
 <script setup>
-
+import { Splitpanes, Pane } from 'splitpanes'
+import 'splitpanes/dist/splitpanes.css'
 import {onMenuClick} from './mainWindow.js'
 import ProcessDp from '@/流程图界面/ProcessDp.vue'
 import PicWindow from "@/图片展示区/PicWindow.vue";
