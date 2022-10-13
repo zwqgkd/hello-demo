@@ -121,10 +121,6 @@ function layout1(){
     height: 100%;
 }
 
-.common-layout svg{
-    display: none;
-}
-
 
 ul.el-menu.el-menu--horizontal.el-menu-demo {
     background-color: rgb(38, 13, 106);
