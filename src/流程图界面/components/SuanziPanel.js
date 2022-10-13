@@ -10,22 +10,41 @@ const SuanziPanel = (function () {
     SuanziPanel.prototype.render = function (lf, domContainer) {
         var _this = this;
         this.destroy();
+
+
+        this.elmenu = document.createElement('span')
+        this.elmenu.className = 'btn-list-group'
+
+        this.elmenua = document.createElement('a')
+        this.elmenua.textContent = "算子"
+        this.elmenua.className = 'btn'
+        this.elmenu.appendChild(this.elmenua)
+
+        var elsubmenu = document.createElement('span')
+        elsubmenu.className = "btn-list-area"
+        this.elmenu.appendChild(elsubmenu)
+
+
+
         if (!this.shapeList || this.shapeList.length === 0) {
             // 首次render后失败后，后续调用setPatternItems支持渲染
             this.domContainer = domContainer;
             return;
         }
-        this.panelEl = document.createElement('div');
-        this.panelEl.className = 'lf-dndpanel suanzi';
+
         this.shapeList.forEach(function (shapeItem) {
-            _this.panelEl.appendChild(_this.createDndItem(shapeItem));
+            elsubmenu.appendChild(_this.createDndItem(shapeItem));
         });
-        domContainer.appendChild(this.panelEl);
+
+
+        this.elmenu.appendChild(elsubmenu)
+
+        domContainer.appendChild(this.elmenu);
         this.domContainer = domContainer;
     };
     SuanziPanel.prototype.destroy = function () {
-        if (this.domContainer && this.panelEl && this.domContainer.contains(this.panelEl)) {
-            this.domContainer.removeChild(this.panelEl);
+        if (this.domContainer && this.elmenu && this.domContainer.contains(this.elmenu)) {
+            this.domContainer.removeChild(this.elmenu);
         }
     };
     SuanziPanel.prototype.setPatternItems = function (shapeList) {
@@ -36,20 +55,26 @@ const SuanziPanel = (function () {
         }
     };
     SuanziPanel.prototype.createDndItem = function (shapeItem) {
+
         var _this = this;
-        var el = document.createElement('div');
-        el.className = shapeItem.className ? "lf-dnd-item " + shapeItem.className : 'lf-dnd-item';
-        var shape = document.createElement('div');
-        shape.className = 'lf-dnd-shape';
-        if (shapeItem.icon) {
-            shape.style.backgroundImage = "url(" + shapeItem.icon + ")";
-        }
-        el.appendChild(shape);
+        var el = document.createElement('a');
+        el.className = 'btn'
+        // el.className = shapeItem.className ? "lf-dnd-item " + shapeItem.className : 'lf-dnd-item';
+        // var shape = document.createElement('div');
+        // shape.className = 'lf-dnd-shape';
+        // if (shapeItem.icon) {
+        //     shape.style.backgroundImage = "url(" + shapeItem.icon + ")";
+        // }
+        // el.appendChild(shape);
+        // if (shapeItem.label) {
+        //     var text = document.createElement('div');
+        //     text.innerText = shapeItem.label;
+        //     text.className = 'lf-dnd-text';
+        //     el.appendChild(text);
+        // }
+
         if (shapeItem.label) {
-            var text = document.createElement('div');
-            text.innerText = shapeItem.label;
-            text.className = 'lf-dnd-text';
-            el.appendChild(text);
+            el.textContent = shapeItem.label;
         }
         el.onmousedown = function () {
             if (shapeItem.type) {
