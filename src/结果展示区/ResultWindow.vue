@@ -1,3 +1,5 @@
 <template>
-    结果展示区
+    <div>
+        结果展示区
+    </div>
 </template>

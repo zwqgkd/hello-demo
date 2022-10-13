@@ -46,19 +46,29 @@
                          @select="handleSelect">
 
                     <el-menu-item index="1">
-                        <el-icon style="color:aliceblue;"><House /></el-icon>
+                        <el-icon style="color:aliceblue;">
+                            <House/>
+                        </el-icon>
                     </el-menu-item>
                     <el-menu-item index="2">
-                        <el-icon style="color:aliceblue;"><Minus /></el-icon>
+                        <el-icon style="color:aliceblue;">
+                            <Minus/>
+                        </el-icon>
                     </el-menu-item>
                     <el-menu-item index="3">
-                        <el-icon style="color:aliceblue;"><CirclePlus /></el-icon>
+                        <el-icon style="color:aliceblue;">
+                            <CirclePlus/>
+                        </el-icon>
                     </el-menu-item>
                     <el-menu-item index="4">
-                        <el-icon style="color:aliceblue;"><Search /></el-icon>
+                        <el-icon style="color:aliceblue;">
+                            <Search/>
+                        </el-icon>
                     </el-menu-item>
                     <el-menu-item index="5">
-                        <el-icon style="color:aliceblue;"><Aim /></el-icon>
+                        <el-icon style="color:aliceblue;">
+                            <Aim/>
+                        </el-icon>
                     </el-menu-item>
                 </el-menu>
 
@@ -66,23 +76,28 @@
 
 
             <el-main class="main-window-content">
-                <el-container>
-                    <el-aside width="50%">
-                        <component :is="compnts[0]"></component>
-                    </el-aside>
 
-                    <el-container>
-<!--                        图片展示区-->
-                        <el-header height="50%">
-                            <component :is="compnts[1]"></component>
-                        </el-header>
-<!--                        结果展示区-->
-                        <el-main>
-                            <component :is="compnts[2]"></component>
-                        </el-main>
-                    </el-container>
-                </el-container>
-                <!--                <router-view></router-view>-->
+                    <splitpanes>
+                        <pane>
+                            <el-aside width="100%">
+                                <component :is="compnts[0]"></component>
+                            </el-aside>
+                        </pane>
+                        <pane>
+
+                                <splitpanes horizontal style="height: 760px">
+                                    <pane>
+                                            <component :is="compnts[1]"></component>
+                                    </pane>
+                                    <pane>
+                                            <component :is="compnts[2]"></component>
+                                    </pane>
+                                </splitpanes>
+
+                        </pane>
+                    </splitpanes>
+
+
             </el-main>
         </el-container>
     </div>
@@ -90,7 +105,7 @@
 </template>
 
 <script setup>
-import { Splitpanes, Pane } from 'splitpanes'
+import {Splitpanes, Pane} from 'splitpanes'
 import 'splitpanes/dist/splitpanes.css'
 import {onMenuClick} from './mainWindow.js'
 import ProcessDp from '@/流程图界面/ProcessDp.vue'
@@ -98,23 +113,23 @@ import PicWindow from "@/图片展示区/PicWindow.vue";
 import ResultWindow from "@/结果展示区/ResultWindow.vue";
 import {ref} from 'vue'
 
-let compnts=ref([
+let compnts = ref([
     ProcessDp,
     PicWindow,
     ResultWindow
 ])
 
-function layout(i){
-    switch (i){
+function layout(i) {
+    switch (i) {
         case 1:
-            compnts.value[0]=ProcessDp
-            compnts.value[1]=ResultWindow
-            compnts.value[2]=PicWindow
+            compnts.value[0] = ProcessDp
+            compnts.value[1] = ResultWindow
+            compnts.value[2] = PicWindow
             break;
         default:
-            compnts.value[0]=ProcessDp
-            compnts.value[1]=PicWindow
-            compnts.value[2]=ResultWindow
+            compnts.value[0] = ProcessDp
+            compnts.value[1] = PicWindow
+            compnts.value[2] = ResultWindow
     }
 
 }
@@ -138,20 +153,22 @@ ul.el-menu.el-menu--horizontal.el-menu-demo {
     margin-right: 0;
     height: 40%;
     width: 94%;
-    border-bottom:1px solid #f6f2f2;
+    border-bottom: 1px solid #f6f2f2;
     position: relative;
     left: 6%;
 }
-.el-menu-demo1 span{
+
+.el-menu-demo1 span {
     height: 100%;
 }
 
 ul.el-menu.el-menu--horizontal.el-menu-demo :hover {
     background-color: rgb(23, 4, 73);
 }
+
 :root {
     --el-color-primary-light-9: rgb(38, 13, 106);
-    --el-color-primary:rgb(38, 13, 106)
+    --el-color-primary: rgb(38, 13, 106)
 }
 
 .el-main {
@@ -163,10 +180,11 @@ ul.el-menu.el-menu--horizontal.el-menu-demo1 {
     margin-right: 0;
     height: 60%;
     width: 94%;
-    border-bottom:0px;
+    border-bottom: 0px;
     position: relative;
     left: 6%;
 }
+
 ul.el-menu.el-menu--horizontal.el-menu-demo1 :hover {
     background-color: rgb(23, 4, 73);
 }
