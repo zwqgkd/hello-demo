@@ -36,7 +36,8 @@
 
                     <el-sub-menu index="6">
                         <template #title><span style="color:aliceblue">布局</span></template>
-                        <el-menu-item @click="layout1"><span>1-1</span></el-menu-item>
+                        <el-menu-item @click="layout(0)"><span>1-1</span></el-menu-item>
+                        <el-menu-item @click="layout(1)"><span>1-2</span></el-menu-item>
                     </el-sub-menu>
 
                 </el-menu>
@@ -102,10 +103,19 @@ let compnts=ref([
     ResultWindow
 ])
 
-function layout1(){
-    compnts.value[0]=ProcessDp
-    compnts.value[1]=ResultWindow
-    compnts.value[2]=PicWindow
+function layout(i){
+    switch (i){
+        case 1:
+            compnts.value[0]=ProcessDp
+            compnts.value[1]=ResultWindow
+            compnts.value[2]=PicWindow
+            break;
+        default:
+            compnts.value[0]=ProcessDp
+            compnts.value[1]=PicWindow
+            compnts.value[2]=ResultWindow
+    }
+
 }
 
 
