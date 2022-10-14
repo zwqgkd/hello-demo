@@ -1,4 +1,3 @@
-
 const FlowCharPanel = (function () {
     function FlowCharPanel(_a) {
         var _this = this;
@@ -12,35 +11,18 @@ const FlowCharPanel = (function () {
         var _this = this;
         this.destroy();
 
-
-        this.elmenu = document.createElement('div')
-        this.elmenu.className = 'btn-list-group lf-dndpanel toolsPanel'
-
-        this.elmenua = document.createElement('div')
-        this.elmenua.textContent = "图形"
-        this.elmenua.className = 'btn'
-        this.elmenu.appendChild(this.elmenua)
-
-        var elsubmenu = document.createElement('div')
-        elsubmenu.className = "btn-list-area"
-        this.elmenu.appendChild(elsubmenu)
-
-
-
         if (!this.shapeList || this.shapeList.length === 0) {
             // 首次render后失败后，后续调用setPatternItems支持渲染
             this.domContainer = domContainer;
             return;
         }
 
+        var toolNodes = ['xuanqu', "start", "userTast", "sysTask", "conditionJudge", "triangle", "end"]
+        var i = 0
         this.shapeList.forEach(function (shapeItem) {
-            elsubmenu.appendChild(_this.createDndItem(shapeItem));
+            document.getElementById(toolNodes[i++]).appendChild(_this.createDndItem(shapeItem));
         });
-
-
-        this.elmenu.appendChild(elsubmenu)
-
-        domContainer.appendChild(this.elmenu);
+        
         this.domContainer = domContainer;
     };
     FlowCharPanel.prototype.destroy = function () {
@@ -59,7 +41,7 @@ const FlowCharPanel = (function () {
 
         var _this = this;
         var el = document.createElement('div');
-        el.className = shapeItem.className ? "lf-dnd-item btn" + shapeItem.className : 'lf-dnd-item btn';
+        el.className = shapeItem.className ? "lf-dnd-item " + shapeItem.className : 'lf-dnd-item';
         var shape = document.createElement('div');
         shape.className = 'lf-dnd-shape';
         if (shapeItem.icon) {
@@ -90,6 +72,5 @@ const FlowCharPanel = (function () {
     FlowCharPanel.pluginName = 'flowCharPanel';
     return FlowCharPanel;
 }());
-
 
 export {FlowCharPanel};
