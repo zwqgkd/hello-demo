@@ -11,35 +11,20 @@ const SuanziPanel = (function () {
         var _this = this;
         this.destroy();
 
-
-        this.elmenu = document.createElement('div')
-        this.elmenu.className = 'btn-list-group lf-dndpanel toolsPanel'
-
-        this.elmenua = document.createElement('div')
-        this.elmenua.textContent = "算子"
-        this.elmenua.className = 'btn'
-        this.elmenu.appendChild(this.elmenua)
-
-        var elsubmenu = document.createElement('div')
-        elsubmenu.className = "btn-list-area"
-        this.elmenu.appendChild(elsubmenu)
-
-
-
         if (!this.shapeList || this.shapeList.length === 0) {
             // 首次render后失败后，后续调用setPatternItems支持渲染
             this.domContainer = domContainer;
             return;
         }
 
+        var suanzis = ['suanzi1', "suanzi2"]
+        var i = 0
         this.shapeList.forEach(function (shapeItem) {
-            elsubmenu.appendChild(_this.createDndItem(shapeItem));
+            document.getElementById(suanzis[i++]).appendChild(_this.createDndItem(shapeItem));
+
         });
 
 
-        this.elmenu.appendChild(elsubmenu)
-
-        domContainer.appendChild(this.elmenu);
         this.domContainer = domContainer;
     };
     SuanziPanel.prototype.destroy = function () {
@@ -58,7 +43,7 @@ const SuanziPanel = (function () {
 
         var _this = this;
         var el = document.createElement('div');
-        el.className = shapeItem.className ? "lf-dnd-item btn" + shapeItem.className : 'lf-dnd-item btn';
+        el.className = shapeItem.className ? "lf-dnd-item" + shapeItem.className : 'lf-dnd-item';
         var shape = document.createElement('div');
         shape.className = 'lf-dnd-shape';
         if (shapeItem.icon) {

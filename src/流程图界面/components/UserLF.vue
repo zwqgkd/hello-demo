@@ -1,14 +1,74 @@
 <template>
+    <el-container>
+        <el-aside style="width:fit-content">
+            <el-menu class="el-menu-vertical-demo" :collapse="true">
+                <el-sub-menu index="1">
+                    <template #title>
+                        <el-icon>
+                            <location />
+                        </el-icon>
+                        <span>suanzi panel</span>
+                    </template>
+                    <el-menu-item-group>
+                        <el-menu-item index="1-1" id="suanzi1"></el-menu-item>
+                        <el-menu-item index="1-2" id="suanzi2"></el-menu-item>
+                    </el-menu-item-group>
+                </el-sub-menu>
+                <el-sub-menu index="2">
+                    <template #title>
+                        <el-icon>
+                            <setting />
+                        </el-icon>
+                        <span>tools panel</span>
+                    </template>
 
-    <div id="lf" style="height: 100%;"></div>
+                    <el-menu-item-group>
+                        <el-menu-item index="2-1" id="xuanqu"></el-menu-item>
+                        <el-menu-item index="2-2" id="start"></el-menu-item>
+                        <el-menu-item index="2-3" id="userTast"></el-menu-item>
+                        <el-menu-item index="2-4" id="sysTask"></el-menu-item>
+                        <el-menu-item index="2-5" id="conditionJudge"></el-menu-item>
+                        <el-menu-item index="2-6" id="triangle"></el-menu-item>
+                        <el-menu-item index="2-7" id="end"></el-menu-item>
+                    </el-menu-item-group>
+                </el-sub-menu>
+                <el-menu-item index="3">
+                    <el-icon>
+                        <document />
+                    </el-icon>
+                    <template #title>Navigator Three</template>
+                </el-menu-item>
+                <el-menu-item index="4">
+                    <el-icon>
+                        <setting />
+                    </el-icon>
+                    <template #title>Navigator Four</template>
+                </el-menu-item>
+            </el-menu>
+        </el-aside>
+
+
+        <el-main id="lf" style="height: 100%;"></el-main>
+    </el-container>
+
+
+
 </template>
 
 <script>
-import {Menu, BpmnElement, SelectionSelect, Control, MiniMap, Snapshot} from '@logicflow/extension'
-import {lfJson2Xml} from '@logicflow/extension'
-import {LogicFlow, PolygonNode, PolygonNodeModel, RectNode, RectNodeModel} from '@logicflow/core'
-import {SuanziPanel} from './SuanziPanel.js'
-import {FlowCharPanel} from './FlowCharPanel.js'
+import { Menu, BpmnElement, SelectionSelect, Control, MiniMap, Snapshot } from '@logicflow/extension'
+import { lfJson2Xml } from '@logicflow/extension'
+import { LogicFlow, PolygonNode, PolygonNodeModel, RectNode, RectNodeModel } from '@logicflow/core'
+import { SuanziPanel } from './SuanziPanel.js'
+import { FlowCharPanel } from './FlowCharPanel.js'
+
+
+const handleOpen = (key, keyPath) => {
+    console.log(key, keyPath)
+}
+const handleClose = (key, keyPath) => {
+    console.log(key, keyPath)
+}
 
 class TriangleModel extends PolygonNodeModel { // 三角形
     setAttributes() {
@@ -46,7 +106,7 @@ export default {
             return (() => {
                 this.initHeight = window.innerHeight
                 this.lf.render(this.lf.getGraphData())
-                const position =lf.getPointByClient(document.documentElement.clientWidth-150,document.documentElement.clientHeight-230)
+                const position = lf.getPointByClient(document.documentElement.clientWidth - 150, document.documentElement.clientHeight - 230)
                 lf.extension.miniMap.show(position.domOverlayPosition.x, position.domOverlayPosition.y)
             })
         }
@@ -146,11 +206,11 @@ export default {
                 view: PolygonNode,
                 model: TriangleModel
             },
-                {
-                    type: 'suanzi',
-                    view: RectNode,
-                    model: SuanziModel
-                }
+            {
+                type: 'suanzi',
+                view: RectNode,
+                model: SuanziModel
+            }
             ])
 
             lf.extension.control.addItem({
@@ -171,7 +231,7 @@ export default {
             }
 
             lf.render(initData)
-            const position =lf.getPointByClient(document.documentElement.clientWidth-150,document.documentElement.clientHeight-230)
+            const position = lf.getPointByClient(document.documentElement.clientWidth - 150, document.documentElement.clientHeight - 230)
             lf.extension.miniMap.show(position.domOverlayPosition.x, position.domOverlayPosition.y)
             this.lf = lf
             this.initData = initData
@@ -205,49 +265,27 @@ export default {
 </script>
 
 <style>
-
-.custom-minimap {
-    background-image: url(sys/logo.png);
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
 }
 
-
-.btn-list-group {
-    position: absolute;
-    z-index: 999;
-}
-
-.btn-list-area {
-    display: none;
-    position: absolute;
-    left: 0;
-    right: 0;
-}
-
-.btn-list-group:hover .btn-list-area {
-    display: inline-flex;
-}
-
-.toolsPanel {
-    position: relative;
+.el-menu--popup {
+    min-width: 100px;
     width: fit-content;
-    height: fit-content;
 }
 
-.btn {
-    display: inline-block;
-    padding: .4em .7em;
-    font-size: 10px;
-    font-weight: 200;
-    color: #6c757d;
-    text-align: center;
-    line-height: 1.5;
-    background-color: #fff;
-    border: 1px solid #e9ecef;
-    cursor: pointer;
-    outline: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+.lf-dnd-item {
+    display: flex;
+}
+
+/* 禁用侧边栏文字选中*/
+.lf-dnd-text {
+    -moz-user-select:none; /* Firefox私有属性 */
+    -webkit-user-select:none; /* WebKit内核私有属性 */
+    -ms-user-select:none; /* IE私有属性(IE10及以后) */
+    -khtml-user-select:none; /* KHTML内核私有属性 */
+    -o-user-select:none; /* Opera私有属性 */
+    user-select:none; /* CSS3属性 */
 }
 </style>
