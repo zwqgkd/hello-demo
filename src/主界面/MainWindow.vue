@@ -76,27 +76,7 @@
 
             <el-main class="main-window-content">
 
-                    <splitpanes>
-                        <pane>
-                            <el-aside width="100%">
-                                <component :is="compnts[0]"></component>
-                            </el-aside>
-                        </pane>
-                        <pane>
-
-                                <splitpanes horizontal :style="'height:'+height_right+'px'">
-                                    <pane>
-                                            <component :is="compnts[1]"></component>
-                                    </pane>
-                                    <pane>
-                                            <component :is="compnts[2]"></component>
-                                    </pane>
-                                </splitpanes>
-
-                        </pane>
-                    </splitpanes>
-
-
+                <component :is="mainLayout" :compnts="compnts" :height_right="height_right"></component>
             </el-main>
         </el-container>
     </div>
@@ -104,13 +84,14 @@
 </template>
 
 <script setup>
-import {Splitpanes, Pane} from 'splitpanes'
-import 'splitpanes/dist/splitpanes.css'
+
 import {onMenuClick} from './mainWindow.js'
 import ProcessDp from '@/流程图界面/ProcessDp.vue'
 import PicWindow from "@/图片展示区/PicWindow.vue";
 import ResultWindow from "@/结果展示区/ResultWindow.vue";
 import {ref} from 'vue'
+import LayoutOne from "@/主界面/components/layout/LayoutOne.vue";
+import LayoutTwo from "@/主界面/components/layout/LayoutTwo.vue";
 
 //右半部分自适应高度
 const height_right=ref(0)
@@ -120,28 +101,22 @@ window.addEventListener('resize',()=>{
     height_right.value=window.innerHeight-82
 })
 
-//交换组件显示区域
-let compnts = ref([
-ProcessDp,
+//动态布局
+const compnts = ref([
+    ProcessDp,
     PicWindow,
     ResultWindow
 ])
+var mainLayout=ref(LayoutOne)
 function layout(i) {
     switch (i) {
         case 1:
-            compnts.value[0] = ProcessDp
-            compnts.value[1] = ResultWindow
-            compnts.value[2] = PicWindow
+            mainLayout.value=LayoutTwo
             break;
         default:
-            compnts.value[0] = ProcessDp
-            compnts.value[1] = PicWindow
-            compnts.value[2] = ResultWindow
+            mainLayout.value=LayoutOne
     }
-
 }
-
-
 </script>
 
 
