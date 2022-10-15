@@ -37,6 +37,7 @@
                         <template #title><span style="color:aliceblue">布局</span></template>
                         <el-menu-item @click="layout(0)"><span>1-1</span></el-menu-item>
                         <el-menu-item @click="layout(1)"><span>1-2</span></el-menu-item>
+                        <el-menu-item @click="layout(2)"><span>1-3</span></el-menu-item>
                     </el-sub-menu>
 
                 </el-menu>
@@ -77,6 +78,7 @@
             <el-main class="main-window-content">
 
                 <component :is="mainLayout" :compnts="compnts" :height_right="height_right"></component>
+
             </el-main>
         </el-container>
     </div>
@@ -92,6 +94,7 @@ import ResultWindow from "@/结果展示区/ResultWindow.vue";
 import {ref} from 'vue'
 import LayoutOne from "@/主界面/components/layout/LayoutOne.vue";
 import LayoutTwo from "@/主界面/components/layout/LayoutTwo.vue";
+import LayoutThree from "@/主界面/components/layout/LayoutThree.vue";
 
 //右半部分自适应高度
 const height_right=ref(0)
@@ -112,6 +115,9 @@ function layout(i) {
     switch (i) {
         case 1:
             mainLayout.value=LayoutTwo
+            break;
+        case 2:
+            mainLayout.value=LayoutThree
             break;
         default:
             mainLayout.value=LayoutOne
