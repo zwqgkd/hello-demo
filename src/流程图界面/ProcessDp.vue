@@ -7,7 +7,7 @@
                     <el-button type="primary">终止</el-button>
                 </span>
             </span>
-            <el-container v-html=item.content style="width: 100%; height: 100%; "></el-container>
+            <iframe src='#/userLF' width='100%' :height="height1+'px'"></iframe>
         </el-tab-pane>
         <!-- <ToolBar></ToolBar> -->
     </el-tabs>
@@ -16,7 +16,16 @@
 
 
 <script setup>
-import {tabIndex, editableTabsValue, editableTabs, handleTabsEdit} from './process'
+import {editableTabsValue, editableTabs, handleTabsEdit} from './process'
+import {ref} from 'vue'
+
+
+//iframe自适应高度
+const height1=ref(0)
+height1.value=window.innerHeight-80-102
+window.addEventListener('resize',()=>{
+    height1.value=window.innerHeight-80-102
+})
 
 
 </script>

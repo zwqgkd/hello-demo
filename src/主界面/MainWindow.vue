@@ -1,6 +1,5 @@
 <template>
 
-
     <div class="common-layout">
         <img style="position:absolute;left:0px;top:0px" src="./img/logo_small.png"/>
         <el-container>
@@ -85,7 +84,7 @@
                         </pane>
                         <pane>
 
-                                <splitpanes horizontal style="height: 760px">
+                                <splitpanes horizontal :style="'height:'+height_right+'px'">
                                     <pane>
                                             <component :is="compnts[1]"></component>
                                     </pane>
@@ -113,12 +112,20 @@ import PicWindow from "@/图片展示区/PicWindow.vue";
 import ResultWindow from "@/结果展示区/ResultWindow.vue";
 import {ref} from 'vue'
 
+//右半部分自适应高度
+const height_right=ref(0)
+height_right.value=window.innerHeight-82
+window.addEventListener('resize',()=>{
+
+    height_right.value=window.innerHeight-82
+})
+
+//交换组件显示区域
 let compnts = ref([
-    ProcessDp,
+ProcessDp,
     PicWindow,
     ResultWindow
 ])
-
 function layout(i) {
     switch (i) {
         case 1:
