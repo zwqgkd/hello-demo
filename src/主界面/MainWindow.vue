@@ -89,13 +89,15 @@
 
 import {onMenuClick} from './mainWindow.js'
 import ProcessDp from '@/流程图界面/ProcessDp.vue'
-import PicWindow from "@/图片展示区/PicWindow.vue";
+import ImageArea from "@/图片展示区/ImageArea.vue";
 import ResultWindow from "@/结果展示区/ResultWindow.vue";
 import {ref} from 'vue'
 import LayoutOne from "@/主界面/components/layout/LayoutOne.vue";
 import LayoutTwo from "@/主界面/components/layout/LayoutTwo.vue";
 import LayoutThree from "@/主界面/components/layout/LayoutThree.vue";
+
 import {eventResponse} from "../eventResponseFunctions.js"
+
 
 //右半部分自适应高度
 const height_right=ref(0)
@@ -108,7 +110,7 @@ window.addEventListener('resize',()=>{
 //动态布局
 const compnts = ref([
     ProcessDp,
-    PicWindow,
+    ImageArea,
     ResultWindow
 ])
 var mainLayout=ref(LayoutOne)

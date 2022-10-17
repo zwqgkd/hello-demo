@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-
+import {ref} from 'vue'
 const activeName = ref('first')
 const props = defineProps(['currentTableData', 'historyTableData', 'helpInfo'])
 
