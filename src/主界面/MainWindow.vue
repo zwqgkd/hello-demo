@@ -1,6 +1,5 @@
 <template>
 
-
     <div class="common-layout">
         <img style="position:absolute;left:0px;top:0px" src="./img/logo_small.png"/>
         <el-container>
@@ -38,6 +37,7 @@
                         <template #title><span style="color:aliceblue">布局</span></template>
                         <el-menu-item @click="layout(0)"><span>1-1</span></el-menu-item>
                         <el-menu-item @click="layout(1)"><span>1-2</span></el-menu-item>
+                        <el-menu-item @click="layout(2)"><span>1-3</span></el-menu-item>
                     </el-sub-menu>
 
                 </el-menu>
@@ -77,26 +77,7 @@
 
             <el-main class="main-window-content">
 
-                    <splitpanes>
-                        <pane>
-                            <el-aside width="100%">
-                                <component :is="compnts[0]"></component>
-                            </el-aside>
-                        </pane>
-                        <pane>
-
-                                <splitpanes horizontal style="height: 760px">
-                                    <pane>
-                                            <component :is="compnts[1]"></component>
-                                    </pane>
-                                    <pane>
-                                            <component :is="compnts[2]"></component>
-                                    </pane>
-                                </splitpanes>
-
-                        </pane>
-                    </splitpanes>
-
+                <component :is="mainLayout" :compnts="compnts" :height_right="height_right"></component>
 
             </el-main>
         </el-container>
@@ -105,36 +86,43 @@
 </template>
 
 <script setup>
-import {Splitpanes, Pane} from 'splitpanes'
-import 'splitpanes/dist/splitpanes.css'
+
 import {onMenuClick} from './mainWindow.js'
 import ProcessDp from '@/流程图界面/ProcessDp.vue'
 import PicWindow from "@/图片展示区/PicWindow.vue";
 import ResultWindow from "@/结果展示区/ResultWindow.vue";
 import {ref} from 'vue'
+import LayoutOne from "@/主界面/components/layout/LayoutOne.vue";
+import LayoutTwo from "@/主界面/components/layout/LayoutTwo.vue";
+import LayoutThree from "@/主界面/components/layout/LayoutThree.vue";
 
-let compnts = ref([
+//右半部分自适应高度
+const height_right=ref(0)
+height_right.value=window.innerHeight-82
+window.addEventListener('resize',()=>{
+
+    height_right.value=window.innerHeight-82
+})
+
+//动态布局
+const compnts = ref([
     ProcessDp,
     PicWindow,
     ResultWindow
 ])
-
+var mainLayout=ref(LayoutOne)
 function layout(i) {
     switch (i) {
         case 1:
-            compnts.value[0] = ProcessDp
-            compnts.value[1] = ResultWindow
-            compnts.value[2] = PicWindow
+            mainLayout.value=LayoutTwo
+            break;
+        case 2:
+            mainLayout.value=LayoutThree
             break;
         default:
-            compnts.value[0] = ProcessDp
-            compnts.value[1] = PicWindow
-            compnts.value[2] = ResultWindow
+            mainLayout.value=LayoutOne
     }
-
 }
-
-
 </script>
 
 
