@@ -7,7 +7,7 @@
             <el-button icon="FullScreen" @click="onPreview(img)">全屏</el-button>
         </div>
         <img
-            src="./img/a.jpg"
+            src="../img/a.jpg"
             class="img"
             :style="{transform:'scale('+multiples+')'}"
         />
