@@ -5,7 +5,7 @@
                 <el-sub-menu index="1">
                     <template #title>
                         <el-icon>
-                            <location />
+                            <location/>
                         </el-icon>
                         <span>suanzi panel</span>
                     </template>
@@ -17,7 +17,7 @@
                 <el-sub-menu index="2">
                     <template #title>
                         <el-icon>
-                            <setting />
+                            <setting/>
                         </el-icon>
                         <span>tools panel</span>
                     </template>
@@ -34,13 +34,13 @@
                 </el-sub-menu>
                 <el-menu-item index="3">
                     <el-icon>
-                        <document />
+                        <document/>
                     </el-icon>
                     <template #title>Navigator Three</template>
                 </el-menu-item>
                 <el-menu-item index="4">
                     <el-icon>
-                        <setting />
+                        <setting/>
                     </el-icon>
                     <template #title>Navigator Four</template>
                 </el-menu-item>
@@ -52,15 +52,14 @@
     </el-container>
 
 
-
 </template>
 
 <script>
-import { Menu, BpmnElement, SelectionSelect, Control, MiniMap, Snapshot } from '@logicflow/extension'
-import { lfJson2Xml } from '@logicflow/extension'
-import { LogicFlow, PolygonNode, PolygonNodeModel, RectNode, RectNodeModel } from '@logicflow/core'
-import { SuanziPanel } from './SuanziPanel.js'
-import { FlowCharPanel } from './FlowCharPanel.js'
+import {Menu, BpmnElement, SelectionSelect, Control, MiniMap, Snapshot} from '@logicflow/extension'
+import {lfJson2Xml} from '@logicflow/extension'
+import {LogicFlow, PolygonNode, PolygonNodeModel, RectNode, RectNodeModel} from '@logicflow/core'
+import {SuanziPanel} from './SuanziPanel.js'
+import {FlowCharPanel} from './FlowCharPanel.js'
 
 
 const handleOpen = (key, keyPath) => {
@@ -206,11 +205,11 @@ export default {
                 view: PolygonNode,
                 model: TriangleModel
             },
-            {
-                type: 'suanzi',
-                view: RectNode,
-                model: SuanziModel
-            }
+                {
+                    type: 'suanzi',
+                    view: RectNode,
+                    model: SuanziModel
+                }
             ])
 
             lf.extension.control.addItem({
@@ -226,9 +225,7 @@ export default {
                 }
             })
 
-            const initData = {
-
-            }
+            const initData = {}
 
             lf.render(initData)
             const position = lf.getPointByClient(document.documentElement.clientWidth - 150, document.documentElement.clientHeight - 230)
@@ -281,11 +278,23 @@ export default {
 
 /* 禁用侧边栏文字选中*/
 .lf-dnd-text {
-    -moz-user-select:none; /* Firefox私有属性 */
-    -webkit-user-select:none; /* WebKit内核私有属性 */
-    -ms-user-select:none; /* IE私有属性(IE10及以后) */
-    -khtml-user-select:none; /* KHTML内核私有属性 */
-    -o-user-select:none; /* Opera私有属性 */
-    user-select:none; /* CSS3属性 */
+    -moz-user-select: none; /* Firefox私有属性 */
+    -webkit-user-select: none; /* WebKit内核私有属性 */
+    -ms-user-select: none; /* IE私有属性(IE10及以后) */
+    -khtml-user-select: none; /* KHTML内核私有属性 */
+    -o-user-select: none; /* Opera私有属性 */
+    user-select: none; /* CSS3属性 */
+}
+
+.lf-mini-map {
+    padding: 0px;
+}
+
+.lf-mini-map-header {
+    visibility: hidden;
+}
+
+.lf-mini-map-close {
+    visibility: hidden;
 }
 </style>
