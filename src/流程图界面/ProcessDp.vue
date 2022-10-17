@@ -2,7 +2,7 @@
     <el-tabs v-model="editableTabsValue" type="card" editable class="demo-tabs" @edit="handleTabsEdit">
         <el-tab-pane v-for="item in editableTabs" :key="item.name" :name="item.name">
             <template #label>
-                流程
+                {{item.title}}
                 <el-button type="primary">开始</el-button>
                 <el-button type="primary">终止</el-button>
             </template>
