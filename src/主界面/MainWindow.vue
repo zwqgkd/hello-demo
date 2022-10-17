@@ -8,7 +8,7 @@
                          @select="handleSelect">
                     <el-sub-menu index="1">
                         <template #title><span style="color:aliceblue">文件</span></template>
-                        <el-menu-item><span>1-1</span></el-menu-item>
+                        <el-menu-item value="1-1" @click="eventResponse('1-1', {})"><span>1-1</span></el-menu-item>
                         <el-menu-item><span>1-2</span></el-menu-item>
                         <el-sub-menu>
                             <template #title>1-3</template>
@@ -95,6 +95,7 @@ import {ref} from 'vue'
 import LayoutOne from "@/主界面/components/layout/LayoutOne.vue";
 import LayoutTwo from "@/主界面/components/layout/LayoutTwo.vue";
 import LayoutThree from "@/主界面/components/layout/LayoutThree.vue";
+import {eventResponse} from "../eventResponseFunctions.js"
 
 //右半部分自适应高度
 const height_right=ref(0)
