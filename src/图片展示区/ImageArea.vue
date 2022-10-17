@@ -1,10 +1,10 @@
 <template>
     <el-scrollbar>
         <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
-            <el-tab-pane label="图像">
+            <el-tab-pane label="图像" name="first">
                 <pic-window></pic-window>
             </el-tab-pane>
-            <el-tab-pane label="模块结果" name="first">
+            <el-tab-pane label="模块结果" >
                 <el-table row-key="id" lazy :data="tableData" border style="width: 100%">
                     <el-table-column prop="paramName" label="参数名称"/>
                     <el-table-column prop="currentResult" label="当前结果"/>
