@@ -126,6 +126,7 @@ function layout(i) {
             mainLayout.value=LayoutOne
     }
 }
+
 </script>
 
 
@@ -179,5 +180,6 @@ ul.el-menu.el-menu--horizontal.el-menu-demo1 {
 ul.el-menu.el-menu--horizontal.el-menu-demo1 :hover {
     background-color: rgb(23, 4, 73);
 }
+
 
 </style>
