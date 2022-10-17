@@ -8,12 +8,12 @@
                          @select="handleSelect">
                     <el-sub-menu index="1">
                         <template #title><span style="color:aliceblue">文件</span></template>
-                        <el-menu-item value="1-1" @click="eventResponse('1-1', {})"><span>1-1</span></el-menu-item>
-                        <el-menu-item><span>1-2</span></el-menu-item>
+                        <el-menu-item value="1-1" @click="eventResponse('1-1', {})"><span>新建方案</span></el-menu-item>
+                        <el-menu-item><span>打开方案</span></el-menu-item>
                         <el-sub-menu>
-                            <template #title>1-3</template>
-                            <el-menu-item><span>1-3-1</span></el-menu-item>
-                            <el-menu-item><span>1-3-2</span></el-menu-item>
+                            <template #title>打开最进方案</template>
+                            <el-menu-item><span>最近方案一</span></el-menu-item>
+                            <el-menu-item><span>最近方案二</span></el-menu-item>
                         </el-sub-menu>
                     </el-sub-menu>
 
