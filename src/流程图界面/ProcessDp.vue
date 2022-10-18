@@ -1,12 +1,12 @@
 <template>
     <el-tabs v-model="editableTabsValue" type="card" editable class="demo-tabs" @edit="handleTabsEdit">
-        <el-tab-pane v-for="item in editableTabs" :key="item.name" :label="item.title" :name="item.name">
-            <span slot="label">
-                <span class="span-box">
-                    <el-button type="primary">开始</el-button><!-- 在button绑定onclick事件-->
-                    <el-button type="primary">终止</el-button>
-                </span>
-            </span>
+        <el-tab-pane v-for="item in editableTabs" :key="item.name" :name="item.name">
+            <template #label>
+                {{item.title}}
+                <el-button type="primary">开始</el-button>
+                <el-button type="primary">终止</el-button>
+            </template>
+
             <iframe src='#/userLF' width='100%' :height="height1+'px'"></iframe>
         </el-tab-pane>
         <!-- <ToolBar></ToolBar> -->
@@ -21,10 +21,10 @@ import {ref} from 'vue'
 
 
 //iframe自适应高度
-const height1=ref(0)
-height1.value=window.innerHeight-80-102
-window.addEventListener('resize',()=>{
-    height1.value=window.innerHeight-80-102
+const height1 = ref(0)
+height1.value = window.innerHeight - 80 - 102
+window.addEventListener('resize', () => {
+    height1.value = window.innerHeight - 80 - 102
 })
 
 

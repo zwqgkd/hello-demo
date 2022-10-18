@@ -8,12 +8,12 @@
                          @select="handleSelect">
                     <el-sub-menu index="1">
                         <template #title><span style="color:aliceblue">文件</span></template>
-                        <el-menu-item><span>1-1</span></el-menu-item>
-                        <el-menu-item><span>1-2</span></el-menu-item>
+                        <el-menu-item value="1-1" @click="eventResponse('1-1', {})"><span>新建方案</span></el-menu-item>
+                        <el-menu-item><span>打开方案</span></el-menu-item>
                         <el-sub-menu>
-                            <template #title>1-3</template>
-                            <el-menu-item><span>1-3-1</span></el-menu-item>
-                            <el-menu-item><span>1-3-2</span></el-menu-item>
+                            <template #title>打开最进方案</template>
+                            <el-menu-item><span>最近方案一</span></el-menu-item>
+                            <el-menu-item><span>最近方案二</span></el-menu-item>
                         </el-sub-menu>
                     </el-sub-menu>
 
@@ -37,6 +37,7 @@
                         <template #title><span style="color:aliceblue">布局</span></template>
                         <el-menu-item @click="layout(0)"><span>1-1</span></el-menu-item>
                         <el-menu-item @click="layout(1)"><span>1-2</span></el-menu-item>
+                        <el-menu-item @click="layout(2)"><span>1-3</span></el-menu-item>
                     </el-sub-menu>
 
                 </el-menu>
@@ -76,26 +77,7 @@
 
             <el-main class="main-window-content">
 
-                    <splitpanes>
-                        <pane>
-                            <el-aside width="100%">
-                                <component :is="compnts[0]"></component>
-                            </el-aside>
-                        </pane>
-                        <pane>
-
-                                <splitpanes horizontal :style="'height:'+height_right+'px'">
-                                    <pane>
-                                            <component :is="compnts[1]"></component>
-                                    </pane>
-                                    <pane>
-                                            <component :is="compnts[2]"></component>
-                                    </pane>
-                                </splitpanes>
-
-                        </pane>
-                    </splitpanes>
-
+                <component :is="mainLayout" :compnts="compnts" :height_right="height_right"></component>
 
             </el-main>
         </el-container>
@@ -104,13 +86,18 @@
 </template>
 
 <script setup>
-import {Splitpanes, Pane} from 'splitpanes'
-import 'splitpanes/dist/splitpanes.css'
+
 import {onMenuClick} from './mainWindow.js'
 import ProcessDp from '@/流程图界面/ProcessDp.vue'
-import PicWindow from "@/图片展示区/PicWindow.vue";
+import ImageArea from "@/图片展示区/ImageArea.vue";
 import ResultWindow from "@/结果展示区/ResultWindow.vue";
 import {ref} from 'vue'
+import LayoutOne from "@/主界面/components/layout/LayoutOne.vue";
+import LayoutTwo from "@/主界面/components/layout/LayoutTwo.vue";
+import LayoutThree from "@/主界面/components/layout/LayoutThree.vue";
+
+import {eventResponse} from "../eventResponseFunctions.js"
+
 
 //右半部分自适应高度
 const height_right=ref(0)
@@ -120,27 +107,25 @@ window.addEventListener('resize',()=>{
     height_right.value=window.innerHeight-82
 })
 
-//交换组件显示区域
-let compnts = ref([
-ProcessDp,
-    PicWindow,
+//动态布局
+const compnts = ref([
+    ProcessDp,
+    ImageArea,
     ResultWindow
 ])
+var mainLayout=ref(LayoutOne)
 function layout(i) {
     switch (i) {
         case 1:
-            compnts.value[0] = ProcessDp
-            compnts.value[1] = ResultWindow
-            compnts.value[2] = PicWindow
+            mainLayout.value=LayoutTwo
+            break;
+        case 2:
+            mainLayout.value=LayoutThree
             break;
         default:
-            compnts.value[0] = ProcessDp
-            compnts.value[1] = PicWindow
-            compnts.value[2] = ResultWindow
+            mainLayout.value=LayoutOne
     }
-
 }
-
 
 </script>
 
@@ -195,5 +180,6 @@ ul.el-menu.el-menu--horizontal.el-menu-demo1 {
 ul.el-menu.el-menu--horizontal.el-menu-demo1 :hover {
     background-color: rgb(23, 4, 73);
 }
+
 
 </style>

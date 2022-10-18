@@ -226,9 +226,7 @@ export default {
                 }
             })
 
-            const initData = {
-
-            }
+            const initData = {}
 
             lf.render(initData)
             const position = lf.getPointByClient(document.documentElement.clientWidth - 150, document.documentElement.clientHeight - 230)
@@ -277,6 +275,11 @@ export default {
 
 .lf-dnd-item {
     display: flex;
+}
+
+
+.lf-mini-map-header {
+    visibility: hidden;
 }
 
 /* 禁用侧边栏文字选中*/
