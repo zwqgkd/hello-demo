@@ -7,7 +7,7 @@
                 <el-button type="primary">终止</el-button>
             </template>
 
-            <iframe src='#/userLF' width='100%' :height="height1+'px'"></iframe>
+            <iframe src='#/userLF' width='100%' :height="height1+'px'" scrolling="no"></iframe>
         </el-tab-pane>
         <!-- <ToolBar></ToolBar> -->
     </el-tabs>
