@@ -7,24 +7,24 @@
                 <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal"
                          @select="handleSelect">
                     <el-sub-menu index="1">
-                        <template #title><span>文件</span></template>
-                        <el-menu-item value="1-1" @click="eventResponse('1-1', {})"><span>新建方案</span></el-menu-item>
-                        <el-menu-item><span>打开方案</span></el-menu-item>
+                        <template #title><span style="color:aliceblue;">文件</span></template>
+                        <el-menu-item value="1-1" @click="eventResponse('1-1', {})"><span style="color:aliceblue;">新建方案</span></el-menu-item>
+                        <el-menu-item><span style="color:aliceblue;">打开方案</span></el-menu-item>
                         <el-sub-menu>
-                            <template #title><span>打开最进方案</span></template>
-                            <el-menu-item><span>最近方案一</span></el-menu-item>
-                            <el-menu-item><span>最近方案二</span></el-menu-item>
+                            <template #title><span style="color:aliceblue;">打开最进方案</span></template>
+                            <el-menu-item><span style="color:aliceblue;">最近方案一</span></el-menu-item>
+                            <el-menu-item><span style="color:aliceblue;">最近方案二</span></el-menu-item>
                         </el-sub-menu>
                     </el-sub-menu>
 
-                    <el-menu-item index="2"><span>系统</span></el-menu-item>
+                    <el-menu-item index="2"><span style="color:aliceblue;">系统</span></el-menu-item>
 
                     <el-sub-menu index="3">
-                        <template #title><span>视图</span></template>
-                        <el-menu-item><span>1-1</span></el-menu-item>
+                        <template #title><span style="color:aliceblue;">视图</span></template>
+                        <el-menu-item><span style="color:aliceblue;">1-1</span></el-menu-item>
                         <el-sub-menu>
-                            <template #title><span>1-2</span></template>
-                            <el-menu-item><span>1-2-1</span></el-menu-item>
+                            <template #title><span style="color:aliceblue;">1-2</span></template>
+                            <el-menu-item><span style="color:aliceblue;">1-2-1</span></el-menu-item>
                         </el-sub-menu>
                     </el-sub-menu>
 
@@ -35,9 +35,9 @@
 
                     <el-sub-menu index="6">
                         <template #title><span style="color:aliceblue">布局</span></template>
-                        <el-menu-item @click="layout(0)"><span>1-1</span></el-menu-item>
-                        <el-menu-item @click="layout(1)"><span>1-2</span></el-menu-item>
-                        <el-menu-item @click="layout(2)"><span>1-3</span></el-menu-item>
+                        <el-menu-item @click="layout(0)"><span style="color:aliceblue;">1-1</span></el-menu-item>
+                        <el-menu-item @click="layout(1)"><span style="color:aliceblue;">1-2</span></el-menu-item>
+                        <el-menu-item @click="layout(2)"><span style="color:aliceblue;">1-3</span></el-menu-item>
                     </el-sub-menu>
 
                 </el-menu>
@@ -131,9 +131,7 @@ function layout(i) {
 
 
 <style>
-span{
-    color: aliceblue;
-}
+
 .el-header {
     --el-header-height: 80px;
 }
