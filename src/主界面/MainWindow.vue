@@ -90,7 +90,7 @@
 import {onMenuClick} from './mainWindow.js'
 import ProcessDp from '@/流程图界面/ProcessDp.vue'
 import ImageArea from "@/图片展示区/ImageArea.vue";
-import ResultWindow from "@/结果展示区/ResultWindow.vue";
+import ResultArea from "@/结果展示区/ResultArea.vue";
 import {ref} from 'vue'
 import LayoutOne from "@/主界面/components/layout/LayoutOne.vue";
 import LayoutTwo from "@/主界面/components/layout/LayoutTwo.vue";
@@ -111,7 +111,7 @@ window.addEventListener('resize',()=>{
 const compnts = ref([
     ProcessDp,
     ImageArea,
-    ResultWindow
+    ResultArea
 ])
 var mainLayout=ref(LayoutOne)
 function layout(i) {
