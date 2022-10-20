@@ -1,5 +1,6 @@
-const FlowCharPanel = (function () {
-    function FlowCharPanel(_a) {
+// 节点样式创建 以及拖动效果绑定
+const LeftMenus = (function () {
+    function LeftMenus(_a) {
         var _this = this;
         var lf = _a.lf;
         this.lf = lf;
@@ -7,7 +8,7 @@ const FlowCharPanel = (function () {
             _this.setPatternItems(shapeList);
         };
     }
-    FlowCharPanel.prototype.render = function (lf, domContainer) {
+    LeftMenus.prototype.render = function (lf, domContainer) {
         var _this = this;
         this.destroy();
 
@@ -16,32 +17,33 @@ const FlowCharPanel = (function () {
             this.domContainer = domContainer;
             return;
         }
-
-        var toolNodes = ['xuanqu', "start", "userTast", "sysTask", "conditionJudge", "triangle", "end"]
-        var i = 0
+        //遍历列表，依次创建每个节点
         this.shapeList.forEach(function (shapeItem) {
-            document.getElementById(toolNodes[i++]).appendChild(_this.createDndItem(shapeItem));
+            document.getElementById(shapeItem.id).appendChild(_this.createDndItem(shapeItem));
         });
-        
+
+
         this.domContainer = domContainer;
     };
-    FlowCharPanel.prototype.destroy = function () {
+    LeftMenus.prototype.destroy = function () {
         if (this.domContainer && this.elmenu && this.domContainer.contains(this.elmenu)) {
             this.domContainer.removeChild(this.elmenu);
         }
     };
-    FlowCharPanel.prototype.setPatternItems = function (shapeList) {
+    LeftMenus.prototype.setPatternItems = function (shapeList) {
         this.shapeList = shapeList;
         // 支持渲染后重新设置拖拽面板
         if (this.domContainer) {
             this.render(this.lf, this.domContainer);
         }
     };
-    FlowCharPanel.prototype.createDndItem = function (shapeItem) {
+
+    //创建图形节点标签
+    LeftMenus.prototype.createDndItem = function (shapeItem) {
 
         var _this = this;
         var el = document.createElement('div');
-        el.className = shapeItem.className ? "lf-dnd-item " + shapeItem.className : 'lf-dnd-item';
+        el.className = shapeItem.className ? "lf-dnd-item" + shapeItem.className : 'lf-dnd-item';
         var shape = document.createElement('div');
         shape.className = 'lf-dnd-shape';
         if (shapeItem.icon) {
@@ -55,6 +57,7 @@ const FlowCharPanel = (function () {
             el.appendChild(text);
         }
 
+        //每个节点拖动绑定
         el.onmousedown = function () {
             if (shapeItem.type) {
                 _this.lf.dnd.startDrag({
@@ -69,8 +72,10 @@ const FlowCharPanel = (function () {
         };
         return el;
     };
-    FlowCharPanel.pluginName = 'flowCharPanel';
-    return FlowCharPanel;
+    LeftMenus.pluginName = 'leftMenus';
+    return LeftMenus;
 }());
 
-export {FlowCharPanel};
+
+//导出变量
+export {LeftMenus};

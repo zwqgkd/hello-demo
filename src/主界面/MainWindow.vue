@@ -3,27 +3,27 @@
     <div class="common-layout">
         <img style="position:absolute;left:0px;top:0px" src="./img/logo_small.png"/>
         <el-container>
-            <el-header style="padding-left:0px;padding-right:0px;background-color:rgb(38, 13, 106);">
+            <el-header style="padding-left:0px;padding-right:0px;background-color:rgb(8,36,105);">
                 <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal"
                          @select="handleSelect">
                     <el-sub-menu index="1">
-                        <template #title><span style="color:aliceblue">文件</span></template>
+                        <template #title><span>文件</span></template>
                         <el-menu-item value="1-1" @click="eventResponse('1-1', {})"><span>新建方案</span></el-menu-item>
                         <el-menu-item><span>打开方案</span></el-menu-item>
                         <el-sub-menu>
-                            <template #title>打开最进方案</template>
+                            <template #title><span>打开最进方案</span></template>
                             <el-menu-item><span>最近方案一</span></el-menu-item>
                             <el-menu-item><span>最近方案二</span></el-menu-item>
                         </el-sub-menu>
                     </el-sub-menu>
 
-                    <el-menu-item index="2"><span style="color:aliceblue;">系统</span></el-menu-item>
+                    <el-menu-item index="2"><span>系统</span></el-menu-item>
 
                     <el-sub-menu index="3">
-                        <template #title><span style="color:aliceblue">视图</span></template>
+                        <template #title><span>视图</span></template>
                         <el-menu-item><span>1-1</span></el-menu-item>
                         <el-sub-menu>
-                            <template #title>1-2</template>
+                            <template #title><span>1-2</span></template>
                             <el-menu-item><span>1-2-1</span></el-menu-item>
                         </el-sub-menu>
                     </el-sub-menu>
@@ -90,7 +90,7 @@
 import {onMenuClick} from './mainWindow.js'
 import ProcessDp from '@/流程图界面/ProcessDp.vue'
 import ImageArea from "@/图片展示区/ImageArea.vue";
-import ResultWindow from "@/结果展示区/ResultWindow.vue";
+import ResultArea from "@/结果展示区/ResultArea.vue";
 import {ref} from 'vue'
 import LayoutOne from "@/主界面/components/layout/LayoutOne.vue";
 import LayoutTwo from "@/主界面/components/layout/LayoutTwo.vue";
@@ -111,7 +111,7 @@ window.addEventListener('resize',()=>{
 const compnts = ref([
     ProcessDp,
     ImageArea,
-    ResultWindow
+    ResultArea
 ])
 var mainLayout=ref(LayoutOne)
 function layout(i) {
@@ -131,6 +131,9 @@ function layout(i) {
 
 
 <style>
+span{
+    color: aliceblue;
+}
 .el-header {
     --el-header-height: 80px;
 }
@@ -141,7 +144,7 @@ function layout(i) {
 
 
 ul.el-menu.el-menu--horizontal.el-menu-demo {
-    background-color: rgb(38, 13, 106);
+    background-color: rgb(8,36,105);
     margin-right: 0;
     height: 40%;
     width: 94%;
@@ -155,20 +158,26 @@ ul.el-menu.el-menu--horizontal.el-menu-demo {
 }
 
 ul.el-menu.el-menu--horizontal.el-menu-demo :hover {
-    background-color: rgb(23, 4, 73);
+    background-color: rgb(121, 187, 255);
 }
 
 :root {
-    --el-color-primary-light-9: rgb(38, 13, 106);
-    --el-color-primary: rgb(38, 13, 106)
+    --el-color-primary-light-9: rgb(8,36,105);
+    --el-color-primary: rgb(8,36,105);
+    --el-menu-bg-color: rgb(8,36,105);
+    --el-menu-hover-bg-color:rgb(121, 187, 255)
 }
+.el-menu--horizontal .el-menu .el-menu-item, .el-menu--horizontal .el-menu .el-sub-menu__title{
+    background-color:rgb(8,36,105)
+}
+
 
 .el-main {
     padding: 0px;
 }
 
 ul.el-menu.el-menu--horizontal.el-menu-demo1 {
-    background-color: rgb(38, 13, 106);
+    background-color: rgb(8,36,105);
     margin-right: 0;
     height: 60%;
     width: 94%;
@@ -178,7 +187,7 @@ ul.el-menu.el-menu--horizontal.el-menu-demo1 {
 }
 
 ul.el-menu.el-menu--horizontal.el-menu-demo1 :hover {
-    background-color: rgb(23, 4, 73);
+    background-color: rgb(121, 187, 255);
 }
 
 
