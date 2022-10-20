@@ -3,8 +3,8 @@
         <el-tab-pane v-for="item in editableTabs" :key="item.name" :name="item.name">
             <template #label>
                 {{item.title}}
-                <el-button type="primary">开始</el-button>
-                <el-button type="primary">终止</el-button>
+                <el-button icon="pointer">开始</el-button>
+                <el-button icon="finished">结束</el-button>
             </template>
 
             <iframe src='#/userLF' width='100%' :height="height1+'px'"></iframe>
@@ -16,8 +16,8 @@
 
 
 <script setup>
-import {editableTabsValue, editableTabs, handleTabsEdit} from './process'
-import {ref} from 'vue'
+import { editableTabsValue, editableTabs, handleTabsEdit } from './process'
+import { ref } from 'vue'
 
 
 //iframe自适应高度
@@ -31,9 +31,7 @@ window.addEventListener('resize', () => {
 </script>
 
 <style scoped>
-
-
-.demo-tabs > .el-tabs__content {
+.demo-tabs>.el-tabs__content {
     padding: 32px;
     color: #6b778c;
     font-size: 32px;
@@ -47,6 +45,4 @@ window.addEventListener('resize', () => {
 .el-tab-pane {
     height: 100%;
 }
-
-
 </style>
