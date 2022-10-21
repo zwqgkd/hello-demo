@@ -8,7 +8,7 @@
 
 
 <script setup>
-import {tableData} from './moduleResult'
+import {tableData} from '../js/moduleResult'
 defineProps(['tableData'])
 
 </script>

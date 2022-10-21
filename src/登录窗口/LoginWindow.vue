@@ -35,7 +35,7 @@
 </template>
 
 <script setup>
-    import {onLoginBtnClick } from './login'
+    import {onLoginBtnClick } from './js/login'
 
 </script>
 
@@ -55,7 +55,7 @@
     }
 
     .login-aside {
-        background-image: url(./img/login_left.png);
+        background-image: url(img/login_left.png);
         background-repeat: no-repeat;
 
         background-size: 50% 100%;

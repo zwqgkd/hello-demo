@@ -21,7 +21,7 @@
     </div>
 </template>
 
-<script src="./picWindow.js">
+<script src="../js/picWindow.js">
 </script>
 
 
