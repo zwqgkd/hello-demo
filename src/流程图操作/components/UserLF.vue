@@ -41,7 +41,7 @@
 
 </template>
 
-<script src="./UserLF.js">
+<script src="../js/UserLF.js">
 
 </script>
 

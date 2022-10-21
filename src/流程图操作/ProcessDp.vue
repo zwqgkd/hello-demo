@@ -16,7 +16,7 @@
 
 
 <script setup>
-import { editableTabsValue, editableTabs, handleTabsEdit ,iframeHeight,dynamicIframeHeight} from './process'
+import { editableTabsValue, editableTabs, handleTabsEdit ,iframeHeight,dynamicIframeHeight} from './js/process'
 import { ref } from 'vue'
 // import './process'
 

@@ -13,7 +13,7 @@
 <script setup>
 
 import PicWindow from './components/PicWindow.vue'
-import ModuleResult from "@/图片展示区/components/ModuleResult.vue";
+import ModuleResult from "@/图像操作/components/ModuleResult.vue";
 import {ref} from "vue";
 defineProps(['tableData'])
 const activeName = ref('first')
