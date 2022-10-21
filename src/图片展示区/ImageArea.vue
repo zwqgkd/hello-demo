@@ -15,6 +15,6 @@
 import PicWindow from './components/PicWindow.vue'
 import ModuleResult from "@/图片展示区/components/ModuleResult.vue";
 import {ref} from "vue";
-const props = defineProps(['tableData'])
+defineProps(['tableData'])
 const activeName = ref('first')
 </script>

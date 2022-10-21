@@ -3,6 +3,6 @@
 </template>
 
 <script setup>
-const props = defineProps(['helpInfo'])
+defineProps(['helpInfo'])
 
 </script>

@@ -84,9 +84,9 @@
 </template>
 
 <script setup>
-import {changeRightHeight,height_right,mainLayout,layout,compnts} from './mainWindow.js'
+import {dynamicRightHeight,height_right,mainLayout,layout,compnts} from './mainWindow.js'
 import {eventResponse} from "@/eventResponseFunctions"
-window.addEventListener('resize',changeRightHeight)
+window.addEventListener('resize',dynamicRightHeight)
 </script>
 
 

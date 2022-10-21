@@ -27,6 +27,6 @@ import HelpData from './components/HelpData.vue'
 import {ref} from 'vue'
 
 const activeName = ref('first')
-const props = defineProps(['currentTableData', 'historyTableData', 'helpInfo'])
+defineProps(['currentTableData', 'historyTableData', 'helpInfo'])
 
 </script>

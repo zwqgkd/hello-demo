@@ -10,7 +10,7 @@ import LayoutThree from "@/主界面/components/layout/LayoutThree.vue";
 //右半部分自适应高度
 const height_right=ref(0)
 height_right.value=window.innerHeight-82
-function changeRightHeight(){
+function dynamicRightHeight(){
     height_right.value=window.innerHeight-82
 }
 
@@ -34,7 +34,7 @@ function layout(i) {
             mainLayout.value=LayoutOne
     }
 }
-export {changeRightHeight,height_right,mainLayout,layout,compnts}
+export {dynamicRightHeight,height_right,mainLayout,layout,compnts}
 
 
 

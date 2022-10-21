@@ -9,6 +9,5 @@
 </template>
 
 <script setup>
-const props = defineProps(['historyTableData'])
-
+defineProps(['historyTableData'])
 </script>
