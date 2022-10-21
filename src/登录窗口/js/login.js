@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import {jump} from '../../sys/jump'
+import {jump} from '../sys/jump'
 
 function onLoginBtnClick(message) {
 

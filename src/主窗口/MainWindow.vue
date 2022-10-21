@@ -85,7 +85,7 @@
 
 <script setup>
 import {dynamicRightHeight,height_right,mainLayout,layout,compnts} from './mainWindow.js'
-import {eventResponse} from "@/eventResponseFunctions"
+import {eventResponse} from "@/sys/eventResponseFunctions"
 window.addEventListener('resize',dynamicRightHeight)
 </script>
 
