@@ -7,7 +7,7 @@
                 <el-button icon="finished">结束</el-button>
             </template>
 
-            <iframe src='#/userLF' width='100%' :height="height1+'px'" scrolling="no"></iframe>
+            <iframe src='#/userLF' width='100%' :height="iframeHeight+'px'" scrolling="no"></iframe>
         </el-tab-pane>
         <!-- <ToolBar></ToolBar> -->
     </el-tabs>
@@ -16,16 +16,13 @@
 
 
 <script setup>
-import { editableTabsValue, editableTabs, handleTabsEdit } from './process'
+import { editableTabsValue, editableTabs, handleTabsEdit ,iframeHeight,dynamicIframeHeight} from './process'
 import { ref } from 'vue'
+// import './process'
 
 
 //iframe自适应高度
-const height1 = ref(0)
-height1.value = window.innerHeight - 80 - 102
-window.addEventListener('resize', () => {
-    height1.value = window.innerHeight - 80 - 102
-})
+window.addEventListener('resize', dynamicIframeHeight)
 
 
 </script>

@@ -30,14 +30,12 @@
 
                     <el-menu-item index="4"><span style="color:aliceblue;">其他</span>
                     </el-menu-item>
-                    <el-menu-item index="5"><span style="color:aliceblue;" @click="onMenuClick('MSG_LF')">流程图</span>
-                    </el-menu-item>
 
                     <el-sub-menu index="6">
                         <template #title><span style="color:aliceblue">布局</span></template>
-                        <el-menu-item @click="layout(0)"><span style="color:aliceblue;">1-1</span></el-menu-item>
-                        <el-menu-item @click="layout(1)"><span style="color:aliceblue;">1-2</span></el-menu-item>
-                        <el-menu-item @click="layout(2)"><span style="color:aliceblue;">1-3</span></el-menu-item>
+                        <el-menu-item @click="layout(0)"><span style="color:aliceblue;">布局一</span></el-menu-item>
+                        <el-menu-item @click="layout(1)"><span style="color:aliceblue;">布局二</span></el-menu-item>
+                        <el-menu-item @click="layout(2)"><span style="color:aliceblue;">布局三</span></el-menu-item>
                     </el-sub-menu>
 
                 </el-menu>
@@ -86,47 +84,9 @@
 </template>
 
 <script setup>
-
-import {onMenuClick} from './mainWindow.js'
-import ProcessDp from '@/流程图界面/ProcessDp.vue'
-import ImageArea from "@/图片展示区/ImageArea.vue";
-import ResultArea from "@/结果展示区/ResultArea.vue";
-import {ref} from 'vue'
-import LayoutOne from "@/主界面/components/layout/LayoutOne.vue";
-import LayoutTwo from "@/主界面/components/layout/LayoutTwo.vue";
-import LayoutThree from "@/主界面/components/layout/LayoutThree.vue";
-
-import {eventResponse} from "../eventResponseFunctions.js"
-
-
-//右半部分自适应高度
-const height_right=ref(0)
-height_right.value=window.innerHeight-82
-window.addEventListener('resize',()=>{
-
-    height_right.value=window.innerHeight-82
-})
-
-//动态布局
-const compnts = ref([
-    ProcessDp,
-    ImageArea,
-    ResultArea
-])
-var mainLayout=ref(LayoutOne)
-function layout(i) {
-    switch (i) {
-        case 1:
-            mainLayout.value=LayoutTwo
-            break;
-        case 2:
-            mainLayout.value=LayoutThree
-            break;
-        default:
-            mainLayout.value=LayoutOne
-    }
-}
-
+import {dynamicRightHeight,height_right,mainLayout,layout,compnts} from './mainWindow.js'
+import {eventResponse} from "@/eventResponseFunctions"
+window.addEventListener('resize',dynamicRightHeight)
 </script>
 
 

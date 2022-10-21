@@ -38,4 +38,12 @@ const handleTabsEdit = (targetName, action) => {
     }
 }
 
-export { tabIndex, editableTabsValue, editableTabs, handleTabsEdit }
+//iframe自适应高度
+const iframeHeight = ref(0)
+iframeHeight.value = window.innerHeight - 80 - 102
+function dynamicIframeHeight(){
+    iframeHeight.value = window.innerHeight - 80 - 102
+}
+
+
+export { tabIndex, editableTabsValue, editableTabs, handleTabsEdit,dynamicIframeHeight,iframeHeight}

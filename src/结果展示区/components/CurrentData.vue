@@ -13,5 +13,5 @@
 </template>
 
 <script setup>
-const props = defineProps(['currentTableData'])
+defineProps(['currentTableData'])
 </script>

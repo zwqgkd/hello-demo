@@ -3,18 +3,18 @@
     <splitpanes horizontal :style="'height:'+height_right+'px'">
 
         <pane >
-            <component :is="props.compnts[0]"></component>
+            <component :is="compnts[0]"></component>
 
         </pane>
         <hr>
         <pane>
             <splitpanes>
                 <pane>
-                    <component :is="props.compnts[1]"></component>
+                    <component :is="compnts[1]"></component>
 
                 </pane>
                 <pane>
-                    <component :is="props.compnts[2]"></component>
+                    <component :is="compnts[2]"></component>
                 </pane>
 
             </splitpanes>
@@ -26,25 +26,13 @@
 <script setup>
 import {Splitpanes, Pane} from 'splitpanes'
 import 'splitpanes/dist/splitpanes.css'
-import {onMounted} from "vue";
+import {defineProps, onMounted} from "vue";
+import {defineSplitWidth} from "@/主界面/components/layout/layout";
 
-const props = defineProps({
-    compnts: Object,
-    height_right: Number
-})
+defineProps(['compnts','height_right'])
 
-
-onMounted(()=>{
-    var splitItems=document.getElementsByClassName('splitpanes__splitter')
-    for(let i=0;i<splitItems.length;i++){
-        let h=splitItems[i].clientHeight,w=splitItems[i].clientWidth
-        if(h>w){
-            splitItems[i].style.width='5px'
-        }else{
-            splitItems[i].style.height='5px'
-        }
-    }
-})
+//定义分割线宽度
+defineSplitWidth()
 
 </script>
 
