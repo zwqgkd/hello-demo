@@ -17,7 +17,14 @@
                         </el-sub-menu>
                     </el-sub-menu>
 
-                    <el-menu-item index="2"><span style="color:aliceblue;">系统</span></el-menu-item>
+                    <el-sub-menu index="2">
+                        <template #title><span style="color:aliceblue;">系统</span></template>
+                        <el-menu-item><span style="color:aliceblue;">1-1</span></el-menu-item>
+                        <el-sub-menu>
+                            <template #title><span style="color:aliceblue;">1-2</span></template>
+                            <el-menu-item><span style="color:aliceblue;">1-2-1</span></el-menu-item>
+                        </el-sub-menu>
+                    </el-sub-menu>
 
                     <el-sub-menu index="3">
                         <template #title><span style="color:aliceblue;">视图</span></template>
@@ -28,8 +35,14 @@
                         </el-sub-menu>
                     </el-sub-menu>
 
-                    <el-menu-item index="4"><span style="color:aliceblue;">其他</span>
-                    </el-menu-item>
+                    <el-sub-menu index="4">
+                        <template #title><span style="color:aliceblue;">其他</span></template>
+                        <el-menu-item><span style="color:aliceblue;">1-1</span></el-menu-item>
+                        <el-sub-menu>
+                            <template #title><span style="color:aliceblue;">1-2</span></template>
+                            <el-menu-item><span style="color:aliceblue;">1-2-1</span></el-menu-item>
+                        </el-sub-menu>
+                    </el-sub-menu>
 
                     <el-sub-menu index="6">
                         <template #title><span style="color:aliceblue">布局</span></template>
