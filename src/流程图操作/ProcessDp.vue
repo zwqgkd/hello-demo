@@ -3,12 +3,16 @@
         <el-tab-pane v-for="item in editableTabs" :key="item.name" :name="item.name">
             <template #label>
                 {{item.title}}
-                <el-button type="primary">开始</el-button>
-                <el-button type="primary">终止</el-button>
+                <el-button icon="pointer">开始</el-button>
+                <el-button icon="finished">结束</el-button>
             </template>
 
+<<<<<<< HEAD:src/流程图界面/ProcessDp.vue
             <iframe src='#/userLF' width='100%' :height="height1+'px'" scrolling="no"></iframe>
             
+=======
+            <iframe src='#/userLF' width='100%' :height="iframeHeight+'px'" scrolling="no"></iframe>
+>>>>>>> 3829f061f287ba31806064a28c278010bcc4541f:src/流程图操作/ProcessDp.vue
         </el-tab-pane>
         <!-- <ToolBar></ToolBar> -->
     </el-tabs>
@@ -17,16 +21,19 @@
 
 
 <script setup>
+<<<<<<< HEAD:src/流程图界面/ProcessDp.vue
 import {editableTabsValue, editableTabs, handleTabsEdit} from './process'
 import {ref} from 'vue'
 import emitter from '../../sys/emiter.js'
+=======
+import { editableTabsValue, editableTabs, handleTabsEdit ,iframeHeight,dynamicIframeHeight} from './js/process'
+import { ref } from 'vue'
+// import './process'
+
+>>>>>>> 3829f061f287ba31806064a28c278010bcc4541f:src/流程图操作/ProcessDp.vue
 
 //iframe自适应高度
-const height1 = ref(0)
-height1.value = window.innerHeight - 80 - 102
-window.addEventListener('resize', () => {
-    height1.value = window.innerHeight - 80 - 102
-})
+window.addEventListener('resize', dynamicIframeHeight)
 
 /**接受userLf iframe发送来的数据， 并且用emitter发射到resultArea组件*/
 window.addEventListener('message', (event) => {if(event.data.nodeHelpMsg) /*添加判断是因为这个监听似乎会执行很多次*/emitter.emit("refresh_help_msg", event.data.nodeHelpMsg)})
@@ -50,9 +57,7 @@ window.addEventListener('message', (event) => {if(event.data.nodeHelpMsg) /*添�
 </script>
 
 <style scoped>
-
-
-.demo-tabs > .el-tabs__content {
+.demo-tabs>.el-tabs__content {
     padding: 32px;
     color: #6b778c;
     font-size: 32px;
@@ -66,6 +71,4 @@ window.addEventListener('message', (event) => {if(event.data.nodeHelpMsg) /*添�
 .el-tab-pane {
     height: 100%;
 }
-
-
 </style>
