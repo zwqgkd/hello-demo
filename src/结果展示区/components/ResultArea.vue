@@ -23,14 +23,23 @@
             </el-scrollbar>
         </el-tab-pane>
         <el-tab-pane label="帮助" name="third">
+            <button v-on:click="helpInfo=''">更换文字</button>
             {{helpInfo}}
         </el-tab-pane>
     </el-tabs>
 </template>
 
 <script setup>
-import {ref} from 'vue'
-const activeName = ref('first')
-const props = defineProps(['currentTableData', 'historyTableData', 'helpInfo'])
+import { ref } from 'vue';
+import emitter from '../../../sys/emiter.js'
+
+// const props = defineProps(['currentTableData', 'historyTableData', 'helpInfo'])
+var helpInfo = ref("ffff")
+
+emitter.on('refresh_help_msg', (e) => {helpInfo.value = e} )
+
+
+
+
 
 </script>

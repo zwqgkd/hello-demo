@@ -12,7 +12,8 @@
                     </template>
                     <el-menu-item-group>
                         <!--vue 插入元素-->
-                        <el-menu-item v-for="(suanzi, index) in suanzis" :index="'suanzi'+index" :id="suanzi.id"></el-menu-item>
+                        <el-menu-item v-for="(suanzi, index) in suanzis" :index="'suanzi'+index" :id="suanzi.id">
+                        </el-menu-item>
                     </el-menu-item-group>
                 </el-sub-menu>
                 <!--图形工具菜单块-->
@@ -23,7 +24,7 @@
                         </el-icon>
                         <span>tools panel</span>
                     </template>
-                    
+
                     <el-menu-item-group>
                         <!--vue 插入元素-->
                         <el-menu-item v-for="(flowChart, index) in flowCharts" :index="'flow'+index" :id="flowChart.id">
@@ -35,6 +36,7 @@
 
         <!--流程图区域-->
         <el-main id="lf" style="height: 100%; padding: 0;"></el-main>
+
     </el-container>
 
 
@@ -51,10 +53,11 @@
     min-height: 400px;
 }
 
-.el-menu--popup{
+.el-menu--popup {
     min-width: 180px;
     width: 180px;
 }
+
 .el-menu-item {
     display: inline-table;
     padding: 2px;

@@ -8,6 +8,7 @@
             </template>
 
             <iframe src='#/userLF' width='100%' :height="height1+'px'" scrolling="no"></iframe>
+            
         </el-tab-pane>
         <!-- <ToolBar></ToolBar> -->
     </el-tabs>
@@ -18,7 +19,7 @@
 <script setup>
 import {editableTabsValue, editableTabs, handleTabsEdit} from './process'
 import {ref} from 'vue'
-
+import emitter from '../../sys/emiter.js'
 
 //iframe自适应高度
 const height1 = ref(0)
@@ -27,7 +28,25 @@ window.addEventListener('resize', () => {
     height1.value = window.innerHeight - 80 - 102
 })
 
-
+/**接受userLf iframe发送来的数据， 并且用emitter发射到resultArea组件*/
+window.addEventListener('message', (event) => {if(event.data.nodeHelpMsg) /*添加判断是因为这个监听似乎会执行很多次*/emitter.emit("refresh_help_msg", event.data.nodeHelpMsg)})
+// /**接受iframe发送来的数据 */
+// window.addEventListener('message', handleMessage)
+// function handleMessage (event) {
+//     // 根据上面制定的结构来解析iframe内部发回来的数据
+//     const data = event.data
+//     switch (data.cmd) {
+//       case 'returnFormJson':
+//         console.log("returnFormJson")
+//         emitter.emit("msg", data.params.helpMsg)
+//         break
+//       case 'returnHeight':
+//         // 业务逻辑
+//         console.log("returnHeight")
+//         emitter.emit("msg", data.params.helpMsg)
+//         break
+//     }
+// }
 </script>
 
 <style scoped>
