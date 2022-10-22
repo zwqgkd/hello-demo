@@ -7,12 +7,7 @@
                 <el-button icon="finished">结束</el-button>
             </template>
 
-<<<<<<< HEAD:src/流程图界面/ProcessDp.vue
-            <iframe src='#/userLF' width='100%' :height="height1+'px'" scrolling="no"></iframe>
-            
-=======
             <iframe src='#/userLF' width='100%' :height="iframeHeight+'px'" scrolling="no"></iframe>
->>>>>>> 3829f061f287ba31806064a28c278010bcc4541f:src/流程图操作/ProcessDp.vue
         </el-tab-pane>
         <!-- <ToolBar></ToolBar> -->
     </el-tabs>
@@ -21,16 +16,8 @@
 
 
 <script setup>
-<<<<<<< HEAD:src/流程图界面/ProcessDp.vue
-import {editableTabsValue, editableTabs, handleTabsEdit} from './process'
-import {ref} from 'vue'
-import emitter from '../../sys/emiter.js'
-=======
 import { editableTabsValue, editableTabs, handleTabsEdit ,iframeHeight,dynamicIframeHeight} from './js/process'
-import { ref } from 'vue'
-// import './process'
-
->>>>>>> 3829f061f287ba31806064a28c278010bcc4541f:src/流程图操作/ProcessDp.vue
+import emitter from '../sys/emiter.js'
 
 //iframe自适应高度
 window.addEventListener('resize', dynamicIframeHeight)

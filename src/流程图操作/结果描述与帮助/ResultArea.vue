@@ -25,8 +25,15 @@ import CurrentData from './components/CurrentData.vue'
 import HistoryData from './components/HistoryData.vue'
 import HelpData from './components/HelpData.vue'
 import {ref} from 'vue'
+import emitter from '../../sys/emiter.js'
 
 const activeName = ref('first')
-defineProps(['currentTableData', 'historyTableData', 'helpInfo'])
+
+// const props = defineProps(['currentTableData', 'historyTableData', 'helpInfo'])
+var helpInfo = ref("")
+var currentTableData = ref('')
+var historyTableData = ref('')
+//emitter 接受bus上的信息
+emitter.on('refresh_help_msg', (e) => {helpInfo.value = e} )
 
 </script>
