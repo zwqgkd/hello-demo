@@ -8,7 +8,7 @@
                          @select="handleSelect">
                     <el-sub-menu index="1">
                         <template #title><span style="color:aliceblue;">文件</span></template>
-                        <el-menu-item value="1-1" @click="eventResponse('1-1', {})"><span style="color:aliceblue;">新建方案</span></el-menu-item>
+                        <el-menu-item value="1-1" @click="eventResponse('newSolution', {})"><span style="color:aliceblue;">新建方案</span></el-menu-item>
                         <el-menu-item><span style="color:aliceblue;">打开方案</span></el-menu-item>
                         <el-sub-menu>
                             <template #title><span style="color:aliceblue;">打开最进方案</span></template>
@@ -98,7 +98,7 @@
 
 <script setup>
 import {dynamicRightHeight,height_right,mainLayout,layout,compnts} from './js/mainWindow.js'
-import {eventResponse} from "@/sys/eventResponseFunctions"
+import {eventResponse} from "@/sys/eventResponseController"
 window.addEventListener('resize',dynamicRightHeight)
 </script>
 
