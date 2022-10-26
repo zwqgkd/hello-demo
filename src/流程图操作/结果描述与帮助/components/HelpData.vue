@@ -1,17 +1,8 @@
 <template>    
-    
-    <button v-on:click="helpInfo='bb'">清除信息</button>
     {{helpInfo}}
-
 </template>
 
 <script setup>
-
-import {ref} from 'vue'
-import emitter from '../../../sys/emiter.js'
-
-var helpInfo = ref("")
-
-//emitter 接受的信息
-emitter.on('refresh_help_msg', (e) => {helpInfo.value = e} )
+import { inject } from 'vue';
+const helpInfo = inject('helpInfo') //帮助显示区组件中注入帮助信息
 </script>

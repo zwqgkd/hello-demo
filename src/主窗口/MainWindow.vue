@@ -1,14 +1,14 @@
 <template>
 
     <div class="common-layout">
-        <img style="position:absolute;left:0px;top:0px" src="./img/logo_small.png"/>
+        <img style="position:absolute;left:0px;top:0px" src="./img/logo_small.png" />
         <el-container>
             <el-header style="padding-left:0px;padding-right:0px;background-color:rgb(8,36,105);">
-                <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal"
-                         @select="handleSelect">
+                <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
                     <el-sub-menu index="1">
                         <template #title><span style="color:aliceblue;">文件</span></template>
-                        <el-menu-item value="1-1" @click="eventResponse('newSolution', {})"><span style="color:aliceblue;">新建方案</span></el-menu-item>
+                        <el-menu-item value="1-1" @click="eventResponse('newSolution', {})"><span
+                                style="color:aliceblue;">新建方案</span></el-menu-item>
                         <el-menu-item><span style="color:aliceblue;">打开方案</span></el-menu-item>
                         <el-sub-menu>
                             <template #title><span style="color:aliceblue;">打开最进方案</span></template>
@@ -53,32 +53,31 @@
 
                 </el-menu>
 
-                <el-menu :default-active="activeIndex" class="el-menu-demo1" mode="horizontal"
-                         @select="handleSelect">
+                <el-menu :default-active="activeIndex" class="el-menu-demo1" mode="horizontal" @select="handleSelect">
 
                     <el-menu-item index="1">
                         <el-icon style="color:aliceblue;">
-                            <House/>
+                            <House />
                         </el-icon>
                     </el-menu-item>
                     <el-menu-item index="2">
                         <el-icon style="color:aliceblue;">
-                            <Minus/>
+                            <Minus />
                         </el-icon>
                     </el-menu-item>
                     <el-menu-item index="3">
                         <el-icon style="color:aliceblue;">
-                            <CirclePlus/>
+                            <CirclePlus />
                         </el-icon>
                     </el-menu-item>
                     <el-menu-item index="4">
                         <el-icon style="color:aliceblue;">
-                            <Search/>
+                            <Search />
                         </el-icon>
                     </el-menu-item>
                     <el-menu-item index="5">
                         <el-icon style="color:aliceblue;">
-                            <Aim/>
+                            <Aim />
                         </el-icon>
                     </el-menu-item>
                 </el-menu>
@@ -97,14 +96,37 @@
 </template>
 
 <script setup>
-import {dynamicRightHeight,height_right,mainLayout,layout,compnts} from './js/mainWindow.js'
-import {eventResponse} from "@/sys/eventResponseController"
-window.addEventListener('resize',dynamicRightHeight)
+import { dynamicRightHeight, height_right, mainLayout, layout, compnts, moduleResultData, currentTableData, historyTableData, helpInfo } from './js/mainWindow.js'
+import { eventResponse } from "@/sys/eventResponseController"
+import { provide } from 'vue'
+provide('moduleResultData', moduleResultData) //在顶端组件提供模块结果数据
+provide('currentTableData', currentTableData) //在顶端组件提供当前结果数据
+provide('historyTableData', historyTableData) //在顶端组件提供历史结果数据
+provide('helpInfo', helpInfo) //在顶端组件提供帮助信息数据
+setInterval(() => { //不用管
+    moduleResultData.value = [];
+    let count = 0;
+    function setChildren(num, data) {
+        let times = Math.floor(Math.random() * num);
+        for (; times > 0; --times) {
+            let node = {
+                id: count++,
+                paramName: Math.random(),
+                currentResult: Math.random(),
+                globalVariable: Math.random(),
+                children: [],
+            };
+            setChildren(Math.floor(num / 2), node.children);
+            data.push(node);
+        }
+    }
+    setChildren(10, moduleResultData.value)
+}, 5000);
+window.addEventListener('resize', dynamicRightHeight)
 </script>
 
 
 <style>
-
 .el-header {
     --el-header-height: 80px;
 }
@@ -115,7 +137,7 @@ window.addEventListener('resize',dynamicRightHeight)
 
 
 ul.el-menu.el-menu--horizontal.el-menu-demo {
-    background-color: rgb(8,36,105);
+    background-color: rgb(8, 36, 105);
     margin-right: 0;
     height: 40%;
     width: 94%;
@@ -133,13 +155,15 @@ ul.el-menu.el-menu--horizontal.el-menu-demo :hover {
 }
 
 :root {
-    --el-color-primary-light-9: rgb(8,36,105);
-    --el-color-primary: rgb(8,36,105);
-    --el-menu-bg-color: rgb(8,36,105);
-    --el-menu-hover-bg-color:rgb(121, 187, 255)
+    --el-color-primary-light-9: rgb(8, 36, 105);
+    --el-color-primary: rgb(8, 36, 105);
+    --el-menu-bg-color: rgb(8, 36, 105);
+    --el-menu-hover-bg-color: rgb(121, 187, 255)
 }
-.el-menu--horizontal .el-menu .el-menu-item, .el-menu--horizontal .el-menu .el-sub-menu__title{
-    background-color:rgb(8,36,105)
+
+.el-menu--horizontal .el-menu .el-menu-item,
+.el-menu--horizontal .el-menu .el-sub-menu__title {
+    background-color: rgb(8, 36, 105)
 }
 
 
@@ -148,7 +172,7 @@ ul.el-menu.el-menu--horizontal.el-menu-demo :hover {
 }
 
 ul.el-menu.el-menu--horizontal.el-menu-demo1 {
-    background-color: rgb(8,36,105);
+    background-color: rgb(8, 36, 105);
     margin-right: 0;
     height: 60%;
     width: 94%;
@@ -160,6 +184,4 @@ ul.el-menu.el-menu--horizontal.el-menu-demo1 {
 ul.el-menu.el-menu--horizontal.el-menu-demo1 :hover {
     background-color: rgb(121, 187, 255);
 }
-
-
 </style>

@@ -34,7 +34,49 @@ function layout(i) {
             mainLayout.value=LayoutOne
     }
 }
+export const moduleResultData = ref([
+    {
+        id:1,
+        paramName:'参数名',
+        currentResult:'当前结果',
+        globalVariable:'全局变量',
+        children:[
+            {
+                id:2,
+                paramName:'参数名',
+                currentResult:'当前结果',
+                globalVariable:'全局变量',
+            },
+            {
+                id:3,
+                paramName:'参数名',
+                currentResult:'当前结果',
+                globalVariable:'全局变量',
+            },
+            {
+                id:4,
+                paramName:'参数名',
+                currentResult:'当前结果',
+                globalVariable:'全局变量',
+                children:[
+                    {
+                        id:5,
+                        paramName:'参数名',
+                        currentResult:'当前结果',
+                        globalVariable:'全局变量',
+                    },
+                ]
+            },
+        ],
+    },
+    {
+        id:6,
+        paramName:'参数名',
+        currentResult:'当前结果',
+        globalVariable:'全局变量',
+    },
+]); //模块结果数据
+export const currentTableData = ref([]) //当前结果数据
+export const historyTableData = ref([]) //历史结果数据
+export const helpInfo = ref('Some help') //帮助信息数据
 export {dynamicRightHeight,height_right,mainLayout,layout,compnts}
-
-
-
