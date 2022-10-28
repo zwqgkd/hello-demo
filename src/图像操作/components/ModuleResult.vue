@@ -8,7 +8,15 @@
 
 
 <script setup>
-import {tableData} from '../js/moduleResult'
-defineProps(['tableData'])
+import emitter from '../../sys/emiter.js'
+import { tableData } from '../js/moduleResult';
 
+defineProps({tableData})
+//emitter 接受的信息
+emitter.on('refresh_tableData_msg', (e) => {setTableData(e)} )
+//更新tableData信息
+function setTableData(e) {
+    tableData.value[0].currentResult = e.newResult
+    tableData.value[0].globalVariable = e.globalVariable
+}
 </script>

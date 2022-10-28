@@ -10,6 +10,12 @@ const handleClose = (key, keyPath) => {
     console.log(key, keyPath)
 }
 
+//收到父页面传输的数据
+window.addEventListener('message', function(messageEvent) {
+        var data = messageEvent.data; 
+        console.log('收到vue的数据：',data);
+    }
+)
 class TriangleModel extends PolygonNodeModel { // 三角形
     setAttributes() {
         this.points = [
@@ -246,3 +252,4 @@ export default {
     },
 
 }
+

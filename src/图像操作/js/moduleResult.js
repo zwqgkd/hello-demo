@@ -5,8 +5,8 @@ const tableData = ref([
     {
         id: 0,
         paramName: '图像源1',
-        currentResult: null,
-        globalVariable: null,
+        currentResult: "null",
+        globalVariable: "null",
         children: [
             {
                 id: 1,

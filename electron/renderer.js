@@ -11,6 +11,10 @@ import '@logicflow/extension/lib/style/index.css'
 
 
 const app=createApp(App)
+// 配置全局变量 页面中使用 inject 接收
+app.provide('global',{
+  store:"global store"
+})
 app.use(router)
 app.use(ElementPlus, { size: 'small', zIndex: 3000 })
 app.mount('#App')
