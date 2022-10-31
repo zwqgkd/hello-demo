@@ -1,8 +1,8 @@
-import { Menu, BpmnElement, SelectionSelect, Control, MiniMap, Snapshot } from '@logicflow/extension'
+import { Menu, BpmnElement, SelectionSelect, Control, Snapshot } from '@logicflow/extension'
 import { lfJson2Xml } from '@logicflow/extension'
 import { LogicFlow, PolygonNode, PolygonNodeModel, RectNode, RectNodeModel } from '@logicflow/core'
 import { LeftMenus } from './LeftMenuItems.js'
-
+import {MiniMap} from './MiniMap.js'
 const handleOpen = (key, keyPath) => {
     console.log(key, keyPath)
 }
