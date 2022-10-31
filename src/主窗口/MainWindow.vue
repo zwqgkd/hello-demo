@@ -7,7 +7,7 @@
                 <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
                     <el-sub-menu index="1">
                         <template #title><span style="color:aliceblue;">文件</span></template>
-                        <el-menu-item value="1-1" @click="eventResponse('newSolution', {})"><span
+                        <el-menu-item value="1-1" id="newSolution"><span
                                 style="color:aliceblue;">新建方案</span></el-menu-item>
                         <el-menu-item><span style="color:aliceblue;">打开方案</span></el-menu-item>
                         <el-sub-menu>
@@ -98,7 +98,12 @@
 <script setup>
 import { dynamicRightHeight, height_right, mainLayout, layout, compnts, moduleResultData, currentTableData, historyTableData, helpInfo } from './js/mainWindow.js'
 import { eventResponse } from "@/sys/eventResponseController"
-import { provide } from 'vue'
+import {onMounted, provide} from 'vue'
+
+onMounted(()=>{
+    window.addEventListener('resize', dynamicRightHeight)
+    document.getElementById('newSolution').addEventListener('click',function(){eventResponse('newSolution',{})})
+})
 provide('moduleResultData', moduleResultData) //在顶端组件提供模块结果数据
 provide('currentTableData', currentTableData) //在顶端组件提供当前结果数据
 provide('historyTableData', historyTableData) //在顶端组件提供历史结果数据
@@ -122,7 +127,7 @@ setInterval(() => { //不用管
     }
     setChildren(10, moduleResultData.value)
 }, 5000);
-window.addEventListener('resize', dynamicRightHeight)
+
 </script>
 
 
