@@ -98,7 +98,13 @@
 <script setup>
 import { dynamicRightHeight, height_right, mainLayout, layout, compnts, moduleResultData, currentTableData, historyTableData, helpInfo } from './js/mainWindow.js'
 import { eventResponse } from "@/sys/eventResponseController"
-import {onMounted, provide} from 'vue'
+import {computed, onMounted, provide} from 'vue'
+import {useStore} from 'vuex'
+
+//实验vuex
+const store=useStore()
+const vuex_demo=computed(()=>store.state.vuex_demo)
+console.log(vuex_demo.value)
 
 onMounted(()=>{
     window.addEventListener('resize', dynamicRightHeight)
