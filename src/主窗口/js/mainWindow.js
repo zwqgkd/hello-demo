@@ -5,11 +5,10 @@ import ResultArea from "@/流程图操作/结果描述与帮助/ResultArea.vue";
 import LayoutOne from "@/主窗口/components/layout/LayoutOne.vue";
 import LayoutTwo from "@/主窗口/components/layout/LayoutTwo.vue";
 import LayoutThree from "@/主窗口/components/layout/LayoutThree.vue";
+import {computed} from "vue";
 
 export default {
-    setup(){
-        import {ref} from 'vue'
-    },
+
     data() {
         return {
             //右半部分的高度
@@ -70,12 +69,13 @@ export default {
     //在顶端组件提供模块结果数据
     provide() {
         return {
-            moduleResultData: this.moduleResultData,
-            currentTableData: this.currentTableData,
-            historyTableData: this.historyTableData,
-            helpInfo: this.helpInfo,
+            // moduleResultData: computed(()=>{return this.moduleResultData}),
+            // currentTableData: computed(()=>this.currentTableData),
+            // historyTableData: computed(()=>this.historyTableData),
+            helpInfo: computed(()=>this.helpInfo),
         }
     },
+
     mounted() {
 
         //动态调整右半部分尺寸
@@ -84,27 +84,27 @@ export default {
         document.getElementById('newSolution').addEventListener('click', function () {
             eventResponse('newSolution', {})
         })
-        setInterval(() => { //不用管
-            this.moduleResultData = [];
-            let count = 0;
-
-            function setChildren(num, data) {
-                let times = Math.floor(Math.random() * num);
-                for (; times > 0; --times) {
-                    let node = {
-                        id: count++,
-                        paramName: Math.random(),
-                        currentResult: Math.random(),
-                        globalVariable: Math.random(),
-                        children: [],
-                    };
-                    setChildren(Math.floor(num / 2), node.children);
-                    data.push(node);
-                }
-            }
-
-            setChildren(10, this.moduleResultData)
-        }, 5000)
+        // setInterval(() => { //不用管
+        //     this.moduleResultData = [];
+        //     let count = 0;
+        //
+        //     function setChildren(num, data) {
+        //         let times = Math.floor(Math.random() * num);
+        //         for (; times > 0; --times) {
+        //             let node = {
+        //                 id: count++,
+        //                 paramName: Math.random(),
+        //                 currentResult: Math.random(),
+        //                 globalVariable: Math.random(),
+        //                 children: [],
+        //             };
+        //             setChildren(Math.floor(num / 2), node.children);
+        //             data.push(node);
+        //         }
+        //     }
+        //
+        //     setChildren(10, this.moduleResultData)
+        // }, 5000)
     },
     methods: {
         //动态布局
