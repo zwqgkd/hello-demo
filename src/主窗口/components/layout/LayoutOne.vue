@@ -25,7 +25,6 @@
 import {Splitpanes, Pane} from 'splitpanes'
 import 'splitpanes/dist/splitpanes.css'
 import {defineProps} from "vue";
-import {height_right} from "@/主窗口/js/mainWindow";
 import {defineSplitWidth} from '../../js/layout.js'
 
 defineProps(['compnts','height_right'])
