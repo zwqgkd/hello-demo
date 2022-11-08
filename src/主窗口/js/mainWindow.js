@@ -8,7 +8,6 @@ import LayoutThree from "@/主窗口/components/layout/LayoutThree.vue";
 import {computed} from "vue";
 
 export default {
-
     data() {
         return {
             //右半部分的高度
