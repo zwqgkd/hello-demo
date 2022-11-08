@@ -61,17 +61,17 @@ export default {
                     globalVariable: '全局变量',
                 },
             ],
-            currentTableData: '',
-            historyTableData: '',
-            helpInfo: 'Some help',
+            currentTableData: 0,
+            historyTableData: 0,
+            helpInfo: '',
         }
     },
     //在顶端组件提供模块结果数据
     provide() {
         return {
-            // moduleResultData: computed(()=>{return this.moduleResultData}),
-            // currentTableData: computed(()=>this.currentTableData),
-            // historyTableData: computed(()=>this.historyTableData),
+            moduleResultData: computed(()=>{return this.moduleResultData}),
+            //currentTableData: computed(()=>this.currentTableData),
+            //historyTableData: computed(()=>this.historyTableData),
             helpInfo: computed(()=>this.helpInfo),
         }
     },
@@ -84,27 +84,27 @@ export default {
         document.getElementById('newSolution').addEventListener('click', function () {
             eventResponse('newSolution', {})
         })
-        // setInterval(() => { //不用管
-        //     this.moduleResultData = [];
-        //     let count = 0;
-        //
-        //     function setChildren(num, data) {
-        //         let times = Math.floor(Math.random() * num);
-        //         for (; times > 0; --times) {
-        //             let node = {
-        //                 id: count++,
-        //                 paramName: Math.random(),
-        //                 currentResult: Math.random(),
-        //                 globalVariable: Math.random(),
-        //                 children: [],
-        //             };
-        //             setChildren(Math.floor(num / 2), node.children);
-        //             data.push(node);
-        //         }
-        //     }
-        //
-        //     setChildren(10, this.moduleResultData)
-        // }, 5000)
+        setInterval(() => { //不用管
+            this.moduleResultData = [];
+            let count = 0;
+
+            function setChildren(num, data) {
+                let times = Math.floor(Math.random() * num);
+                for (; times > 0; --times) {
+                    let node = {
+                        id: count++,
+                        paramName: Math.random(),
+                        currentResult: Math.random(),
+                        globalVariable: Math.random(),
+                        children: [],
+                    };
+                    setChildren(Math.floor(num / 2), node.children);
+                    data.push(node);
+                }
+            }
+
+            setChildren(10, this.moduleResultData)
+        }, 5000)
     },
     methods: {
         //动态布局

@@ -8,7 +8,9 @@
 
 </template>
 
-<script setup>
-import { inject } from 'vue';
-const historyTableData = inject(['historyTableData']) //历史结果显示区组件中注入帮助信息
+
+<script>
+export default{
+    inject:['historyTableData']
+}
 </script>
