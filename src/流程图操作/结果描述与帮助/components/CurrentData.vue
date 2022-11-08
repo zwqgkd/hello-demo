@@ -12,7 +12,17 @@
 
 </template>
 
-<script setup>
-import { inject } from 'vue';
-const currentTableData = inject(['currentTableData']) //当前结果显示区组件中注入帮助信息
+<!--<script setup>-->
+<!--import { inject } from 'vue';-->
+<!--const currentTableData = inject(['currentTableData']) //当前结果显示区组件中注入帮助信息-->
+<!--</script>-->
+<script>
+export default{
+    inject:['currentTableData'],//当前结果显示区组件中注入帮助信息
+    data(){
+        return {
+            currentTableData:this.currentTableData
+        }
+    }
+}
 </script>

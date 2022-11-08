@@ -1,6 +1,6 @@
 //initial state
 const state=()=>({
-    vuex_demo:1
+
 })
 
 //getters

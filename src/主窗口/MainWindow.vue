@@ -1,14 +1,14 @@
 <template>
 
     <div class="common-layout">
-        <img style="position:absolute;left:0px;top:0px" src="./img/logo_small.png" />
+        <img style="position:absolute;left:0px;top:0px" src="./img/logo_small.png"/>
         <el-container>
             <el-header style="padding-left:0px;padding-right:0px;background-color:rgb(8,36,105);">
                 <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
                     <el-sub-menu index="1">
                         <template #title><span style="color:aliceblue;">文件</span></template>
                         <el-menu-item value="1-1" id="newSolution"><span
-                                style="color:aliceblue;">新建方案</span></el-menu-item>
+                            style="color:aliceblue;">新建方案</span></el-menu-item>
                         <el-menu-item><span style="color:aliceblue;">打开方案</span></el-menu-item>
                         <el-sub-menu>
                             <template #title><span style="color:aliceblue;">打开最进方案</span></template>
@@ -57,27 +57,27 @@
 
                     <el-menu-item index="1">
                         <el-icon style="color:aliceblue;">
-                            <House />
+                            <House/>
                         </el-icon>
                     </el-menu-item>
                     <el-menu-item index="2">
                         <el-icon style="color:aliceblue;">
-                            <Minus />
+                            <Minus/>
                         </el-icon>
                     </el-menu-item>
                     <el-menu-item index="3">
                         <el-icon style="color:aliceblue;">
-                            <CirclePlus />
+                            <CirclePlus/>
                         </el-icon>
                     </el-menu-item>
                     <el-menu-item index="4">
                         <el-icon style="color:aliceblue;">
-                            <Search />
+                            <Search/>
                         </el-icon>
                     </el-menu-item>
                     <el-menu-item index="5">
                         <el-icon style="color:aliceblue;">
-                            <Aim />
+                            <Aim/>
                         </el-icon>
                     </el-menu-item>
                 </el-menu>
@@ -95,47 +95,8 @@
 
 </template>
 
-<script setup>
-import { dynamicRightHeight, height_right, mainLayout, layout, compnts, moduleResultData, currentTableData, historyTableData, helpInfo } from './js/mainWindow.js'
-import { eventResponse } from "@/sys/eventResponseController"
-import {computed, onMounted, provide} from 'vue'
-import {useStore} from 'vuex'
 
-//实验vuex
-const store=useStore()
-const vuex_demo=computed(()=>store.state.vuex_demo)
-console.log(vuex_demo.value)
-
-onMounted(()=>{
-    window.addEventListener('resize', dynamicRightHeight)
-    document.getElementById('newSolution').addEventListener('click',function(){eventResponse('newSolution',{})})
-})
-provide('moduleResultData', moduleResultData) //在顶端组件提供模块结果数据
-provide('currentTableData', currentTableData) //在顶端组件提供当前结果数据
-provide('historyTableData', historyTableData) //在顶端组件提供历史结果数据
-provide('helpInfo', helpInfo) //在顶端组件提供帮助信息数据
-setInterval(() => { //不用管
-    moduleResultData.value = [];
-    let count = 0;
-    function setChildren(num, data) {
-        let times = Math.floor(Math.random() * num);
-        for (; times > 0; --times) {
-            let node = {
-                id: count++,
-                paramName: Math.random(),
-                currentResult: Math.random(),
-                globalVariable: Math.random(),
-                children: [],
-            };
-            setChildren(Math.floor(num / 2), node.children);
-            data.push(node);
-        }
-    }
-    setChildren(10, moduleResultData.value)
-}, 5000);
-
-</script>
-
+<script src="./js/mainWindow.js"></script>
 
 <style>
 .el-header {
