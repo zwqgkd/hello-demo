@@ -61,8 +61,8 @@ export default {
                     globalVariable: '全局变量',
                 },
             ],
-            currentTableData: 0,
-            historyTableData: 0,
+            currentTableData: [],
+            historyTableData: [],
             helpInfo: '',
         }
     },
@@ -70,8 +70,8 @@ export default {
     provide() {
         return {
             moduleResultData: computed(()=>{return this.moduleResultData}),
-            //currentTableData: computed(()=>this.currentTableData),
-            //historyTableData: computed(()=>this.historyTableData),
+            currentTableData: computed(()=>this.currentTableData),
+            historyTableData: computed(()=>this.historyTableData),
             helpInfo: computed(()=>this.helpInfo),
         }
     },

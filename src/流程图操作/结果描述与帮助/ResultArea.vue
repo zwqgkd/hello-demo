@@ -25,10 +25,5 @@ import CurrentData from './components/CurrentData.vue' //当前结果显示区�
 import HistoryData from './components/HistoryData.vue' //历史结果显示区组件
 import HelpData from './components/HelpData.vue' //帮助显示区组件
 import {ref} from 'vue'
-
 const activeName = ref('first') //当前选中标签页
-
-
-
-
 </script>

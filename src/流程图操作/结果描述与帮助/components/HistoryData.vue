@@ -11,6 +11,11 @@
 
 <script>
 export default{
-    inject:['historyTableData']
+    inject:['historyTableData'],
+    data(){
+        return {
+            historyTableData:this.historyTableData
+        }
+    }
 }
 </script>

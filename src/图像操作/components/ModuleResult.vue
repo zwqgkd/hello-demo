@@ -10,17 +10,16 @@
 
 <!--<script setup>-->
 <!--import { inject } from 'vue';-->
-<!--const moduleResultData = inject('moduleResultData')//模块结果组件中注入模块结果数据-->
+<!--const moduleResultData = inject('moduleResultData')-->
 <!--</script>-->
 
 <script>
 export default{
-    inject:['moduleResultData'],
+    inject:['moduleResultData'],//模块结果组件中注入模块结果数据
     data(){
         return {
             moduleResultData:this.moduleResultData
         }
     }
-
 }
 </script>
