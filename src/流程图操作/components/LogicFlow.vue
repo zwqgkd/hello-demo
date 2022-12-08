@@ -2,32 +2,17 @@
     <el-container>
         <el-aside style="width:fit-content">
             <el-menu class="el-menu-vertical" :collapse="true">
-                <!--算子菜单块-->
-                <el-sub-menu index="1">
+                <!--遍历添加算子菜单块-->
+                <el-sub-menu v-for="(value, key, index1) in suanzis" :index="index1">
                     <template #title>
                         <el-icon>
                             <location />
                         </el-icon>
-                        <span>suanzi panel</span>
+                        <span>{{key}}</span>
                     </template>
                     <el-menu-item-group>
                         <!--vue 插入元素-->
-                        <el-menu-item v-for="(suanzi, index) in suanzis" :index="'suanzi'+index" :id="suanzi.id">
-                        </el-menu-item>
-                    </el-menu-item-group>
-                </el-sub-menu>
-                <!--图形工具菜单块-->
-                <el-sub-menu index="2">
-                    <template #title>
-                        <el-icon>
-                            <setting />
-                        </el-icon>
-                        <span>tools panel</span>
-                    </template>
-
-                    <el-menu-item-group>
-                        <!--vue 插入元素-->
-                        <el-menu-item v-for="(flowChart, index) in flowCharts" :index="'flow'+index" :id="flowChart.id">
+                        <el-menu-item v-for="(suanziItem, index2) in value" :index="'suanzi' + index1 + '-' + index2" :id="suanziItem.id">
                         </el-menu-item>
                     </el-menu-item-group>
                 </el-sub-menu>

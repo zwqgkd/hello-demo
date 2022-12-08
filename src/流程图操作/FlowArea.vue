@@ -2,12 +2,13 @@
     <el-tabs v-model="editableTabsValue" type="card" editable class="demo-tabs" @edit="handleTabsEdit">
         <el-tab-pane v-for="item in editableTabs" :key="item.name" :name="item.name">
             <template #label>
-                {{item.title}}
-                <el-button icon="pointer">开始</el-button>
+                {{ item.title }}
+                <el-button icon="pointer" @click="getGeometry(item.name)">开始</el-button>
                 <el-button icon="finished">结束</el-button>
             </template>
-            
+
             <iframe src='#/logicFlow' ref="mapFrame" width='100%' :height="iframeHeight + 'px'" scrolling="no"></iframe>
+
         </el-tab-pane>
         <!-- <ToolBar></ToolBar> -->
     </el-tabs>
@@ -18,13 +19,19 @@
 <script setup>
 
 import { editableTabsValue, editableTabs, handleTabsEdit, iframeHeight, dynamicIframeHeight } from './js/FlowArea'
+
 import emitter from '../sys/emiter.js'
 
 //iframe自适应高度
 window.addEventListener('resize', dynamicIframeHeight)
 
 /**接受userLf iframe发送来的数据， 并且用emitter发射到resultArea组件*/
-window.addEventListener('message', (event) => {if(event.data.nodeHelpMsg) /*添加判断是因为这个监听似乎会执行很多次*/emitter.emit("refresh_help_msg", event.data.nodeHelpMsg)})
+window.addEventListener('message', (event) => {
+    if (event.data.nodeHelpMsg) /*添加判断是因为这个监听似乎会执行很多次*/ {
+        emitter.emit("refresh_help_msg", event.data.nodeHelpMsg)
+        emitter.emit("refresh_tableData_msg", { "newResult": "a new result", "globalVariable": "a global variable" })
+    }
+})
 // /**接受iframe发送来的数据 */
 // window.addEventListener('message', handleMessage)
 // function handleMessage (event) {
@@ -42,6 +49,11 @@ window.addEventListener('message', (event) => {if(event.data.nodeHelpMsg) /*添�
 //         break
 //     }
 // }
+
+//给子iframe传数据
+function getGeometry(id) {
+    window.frames[id-1].postMessage(id-1)
+}
 </script>
 
 <style scoped>
