@@ -43,7 +43,7 @@
 
 </template>
 
-<script src="../js/UserLF.js">
+<script src="../js/LogicFlow.js">
 
 </script>
 

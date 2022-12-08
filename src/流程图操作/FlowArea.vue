@@ -6,8 +6,8 @@
                 <el-button icon="pointer">开始</el-button>
                 <el-button icon="finished">结束</el-button>
             </template>
-
-            <iframe src='#/userLF' width='100%' :height="iframeHeight+'px'" scrolling="no"></iframe>
+            
+            <iframe src='#/logicFlow' ref="mapFrame" width='100%' :height="iframeHeight + 'px'" scrolling="no"></iframe>
         </el-tab-pane>
         <!-- <ToolBar></ToolBar> -->
     </el-tabs>
@@ -16,7 +16,8 @@
 
 
 <script setup>
-import { editableTabsValue, editableTabs, handleTabsEdit ,iframeHeight,dynamicIframeHeight} from './js/process'
+
+import { editableTabsValue, editableTabs, handleTabsEdit, iframeHeight, dynamicIframeHeight } from './js/FlowArea'
 import emitter from '../sys/emiter.js'
 
 //iframe自适应高度

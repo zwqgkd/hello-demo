@@ -9,7 +9,7 @@ const router = createRouter({
             path: '/',
             name: 'login',
             component: () => import('@/登录窗口/LoginWindow.vue')
-            // component: () => import('../components/ProcessDp.vue')
+            // component: () => import('../components/FlowArea.vue')
         },
         {
             path: '/main',
@@ -19,14 +19,14 @@ const router = createRouter({
                 {
                     path: '/processDp',
                     name: 'process',
-                    component: () => import('@/流程图操作/ProcessDp.vue')
+                    component: () => import('@/流程图操作/FlowArea.vue')
                 },
             ]
         },
         {
-            path: '/userLF',
+            path: '/logicFlow',
             name: 'lf',
-            component: () => import('@/流程图操作/components/UserLF.vue')
+            component: () => import('@/流程图操作/components/LogicFlow.vue')
         },
     ]
 })

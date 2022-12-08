@@ -30,6 +30,15 @@ class SuanziModel extends RectNodeModel {
     }
 }
 
+$(document).ready(function(){
+    $.getJSON("data.json",function(result){
+        console.log(result)
+        //var obj = JSON.parse(result);
+        //console.log(obj)
+
+    });
+});
+
 // 存储算子信息列表
 const suanziItemList = [
     {

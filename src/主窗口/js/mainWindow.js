@@ -1,5 +1,5 @@
 import {eventResponse} from "@/sys/eventResponseController"
-import ProcessDp from "@/流程图操作/ProcessDp.vue";
+import ProcessDp from "@/流程图操作/FlowArea.vue";
 import ImageArea from "@/图像操作/ImageArea.vue";
 import ResultArea from "@/流程图操作/结果描述与帮助/ResultArea.vue";
 import LayoutOne from "@/主窗口/components/layout/LayoutOne.vue";
