@@ -54,6 +54,7 @@ class SuanziModel extends RectNodeModel {
 
 //法三
 import data from './data.json'
+import {eventResponse} from "../../sys/eventResponseController";
 console.log(data)
 const suanziItemList=data
 
@@ -235,6 +236,10 @@ export default {
             })
             //设置节点点击事件监听, 修改帮助信息
             lf.on('node:click', (data) => {
+                //调用事件响应函数，做出响应
+                const key=data.data.properties.key
+                eventResponse(key,{})
+
                 //iframe给父组件传递消息方法
                 window.parent.postMessage({ nodeHelpMsg: data.data.properties.helpMsg });
                 console.log(JSON.stringify(data.data.text.value) + " is clicked. run some method related to label or type or id... and it's properties taht we can modify are: " + JSON.stringify(data.data.properties) )
