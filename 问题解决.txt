@@ -1,0 +1,18 @@
+1. 导航栏添加icon图片
+
+    iconClass: "custom-minimap"用css
+    .custom-minimap {
+        background-image: url(sys/logo.png);
+    }
+
+
+2. 将算子写成可拖动格式
+从新写个类继承dndpanel实现不了拖动效果
+
+拷贝dndpanel代码 并对之进行相应修改 添加拖动绑定是现在onmousedown监听函数内且调用了第三方api
+
+todo list
+* 注释
+* 命令规范
+* 消除插入硬代码
+* panel文件统一格式
