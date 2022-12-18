@@ -1,4 +1,4 @@
-import {eventResponse} from "@/sys/eventResponseController"
+import {eventHandle,msg_eventType} from "@/sys/eventResponseController"
 import ProcessDp from "@/流程图操作/FlowArea.vue";
 import ImageArea from "@/图像操作/ImageArea.vue";
 import ResultArea from "@/流程图操作/结果描述与帮助/ResultArea.vue";
@@ -81,7 +81,8 @@ export default {
         window.addEventListener('resize', this.dynamicRightHeight)
         //新建文件的点击事件
         document.getElementById('newSolution').addEventListener('click', function () {
-            eventResponse('newSolution', {})
+            const msg_key='newSolution'
+            eventHandle(msg_eventType.msg_menuBar, {msg_key})
         })
         setInterval(() => { //不用管
             this.moduleResultData = [];
