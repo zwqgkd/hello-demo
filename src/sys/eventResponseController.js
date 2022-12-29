@@ -10,28 +10,29 @@ const V2F_Mapping={  //key为被触发事件的类型，value为对应应该运�
 }
 
 //存储事件类型
-export const msg_eventType={
-    msg_oneStepCalculation:1,   //事件定义：单步计算
+export const events={
+    msg_singleStepOpr:1,   //事件定义：单步计算
     msg_menuBar:2,               //事件定义：菜单栏事件
 }
 
 //事件管理函数
 export function eventHandle(event, paras){   //事件触发后的响应函数
-    let eventResponse
     switch(event){
-        case msg_eventType.msg_oneStepCalculation:  //单步计算算子
-            eventResponse = V2F_Mapping[paras.msg_key]
-            if(eventResponse!==undefined&&typeof eventResponse === 'function'){
-                eventResponse(paras)
-            }
+        case events.msg_singleStepOpr:  //单步计算算子
+            eventFindValueFunction(paras)
             break;
-        case msg_eventType.msg_menuBar:
-            eventResponse = V2F_Mapping[paras.msg_key]
-            if(eventResponse!==undefined&&typeof eventResponse === 'function'){
-                eventResponse(paras)
-            }
+        case events.msg_menuBar:
+            eventFindValueFunction(paras)
             break;
         default:
             //.....
+    }
+}
+
+//事件管理函数中确定事件类型后的处理，先找到key对应的value函数，再调用value函数
+function eventFindValueFunction(paras){
+    let eventResponse = V2F_Mapping[paras.msg_key]
+    if(eventResponse!==undefined&&typeof eventResponse === 'function'){
+        eventResponse(paras)
     }
 }

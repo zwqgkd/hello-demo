@@ -54,7 +54,7 @@ class SuanziModel extends RectNodeModel {
 
 //法三
 import data from './data.json'
-import {eventHandle,msg_eventType} from "../../sys/eventResponseController";
+import {eventHandle, events} from "../../sys/eventResponseController";
 console.log(data)
 const suanziItemList=data
 
@@ -238,7 +238,7 @@ export default {
             lf.on('node:click', (data) => {
                 //调用事件响应函数，做出响应
                 const msg_key=data.data.properties.key
-                eventHandle(msg_eventType.msg_oneStepCalculation,{msg_key})//单步运算->key
+                eventHandle(events.msg_singleStepOpr,{msg_key})//单步运算->key
 
                 //iframe给父组件传递消息方法
                 window.parent.postMessage({ nodeHelpMsg: data.data.properties.helpMsg });
