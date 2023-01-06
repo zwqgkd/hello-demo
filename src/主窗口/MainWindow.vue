@@ -4,7 +4,7 @@
         <img style="position:absolute;left:0px;top:0px" src="./img/logo_small.png"/>
         <el-container>
             <el-header style="padding-left:0px;padding-right:0px;background-color:rgb(8,36,105);">
-                <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+                <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" menu-trigger="hover">
                     <el-sub-menu index="1">
                         <template #title><span style="color:aliceblue;">文件</span></template>
                         <el-menu-item value="1-1" id="newSolution"><span
@@ -15,36 +15,29 @@
                             <el-menu-item><span style="color:aliceblue;">最近方案一</span></el-menu-item>
                             <el-menu-item><span style="color:aliceblue;">最近方案二</span></el-menu-item>
                         </el-sub-menu>
+                        <el-menu-item><span style="color:aliceblue;">保存方案</span></el-menu-item>
+                        <el-menu-item><span style="color:aliceblue;">方案另存为</span></el-menu-item>
                     </el-sub-menu>
 
                     <el-sub-menu index="2">
                         <template #title><span style="color:aliceblue;">系统</span></template>
-                        <el-menu-item><span style="color:aliceblue;">1-1</span></el-menu-item>
-                        <el-sub-menu>
-                            <template #title><span style="color:aliceblue;">1-2</span></template>
-                            <el-menu-item><span style="color:aliceblue;">1-2-1</span></el-menu-item>
-                        </el-sub-menu>
+                        <el-menu-item><span style="color:aliceblue;">相机管理</span></el-menu-item>
                     </el-sub-menu>
 
                     <el-sub-menu index="3">
                         <template #title><span style="color:aliceblue;">视图</span></template>
-                        <el-menu-item><span style="color:aliceblue;">1-1</span></el-menu-item>
-                        <el-sub-menu>
-                            <template #title><span style="color:aliceblue;">1-2</span></template>
-                            <el-menu-item><span style="color:aliceblue;">1-2-1</span></el-menu-item>
-                        </el-sub-menu>
+                        <el-menu-item><span style="color:aliceblue;">选择页面</span></el-menu-item>
+                        <el-menu-item><span style="color:aliceblue;">运行界面</span></el-menu-item>
                     </el-sub-menu>
 
                     <el-sub-menu index="4">
                         <template #title><span style="color:aliceblue;">其他</span></template>
-                        <el-menu-item><span style="color:aliceblue;">1-1</span></el-menu-item>
-                        <el-sub-menu>
-                            <template #title><span style="color:aliceblue;">1-2</span></template>
-                            <el-menu-item><span style="color:aliceblue;">1-2-1</span></el-menu-item>
-                        </el-sub-menu>
+                        <el-menu-item><span style="color:aliceblue;">关于</span></el-menu-item>
+                        <el-menu-item><span style="color:aliceblue;">日志</span></el-menu-item>
+                        <el-menu-item><span style="color:aliceblue;">修改密码</span></el-menu-item>
                     </el-sub-menu>
 
-                    <el-sub-menu index="6">
+                    <el-sub-menu index="5">
                         <template #title><span style="color:aliceblue">布局</span></template>
                         <el-menu-item @click="layout(0)"><span style="color:aliceblue;">布局一</span></el-menu-item>
                         <el-menu-item @click="layout(1)"><span style="color:aliceblue;">布局二</span></el-menu-item>
