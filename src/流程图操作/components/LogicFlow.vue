@@ -1,14 +1,11 @@
 <template>
     <el-container>
-        <el-aside style="width:fit-content">
-            <el-menu class="el-menu-vertical" :collapse="true">
+        <el-aside style="width:100px">
+            <el-menu class="el-menu-vertical" :collapse="true" style="width: 100px">
                 <!--遍历添加算子菜单块-->
                 <el-sub-menu v-for="(value, key, index1) in suanzis" :index="index1">
                     <template #title>
-                        <el-icon>
-                            <location />
-                        </el-icon>
-                        <span>{{key}}</span>
+                        {{key}}
                     </template>
                     <el-menu-item-group>
                         <!--vue 插入元素-->

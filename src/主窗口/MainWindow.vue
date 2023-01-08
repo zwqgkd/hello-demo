@@ -7,14 +7,8 @@
                 <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" menu-trigger="hover">
                     <el-sub-menu index="1">
                         <template #title><span style="color:aliceblue;">文件</span></template>
-                        <el-menu-item value="1-1" id="newSolution"><span
-                            style="color:aliceblue;">新建方案</span></el-menu-item>
+                        <el-menu-item value="1-1" id="newSolution"><span style="color:aliceblue;">新建方案</span></el-menu-item>
                         <el-menu-item><span style="color:aliceblue;">打开方案</span></el-menu-item>
-                        <el-sub-menu>
-                            <template #title><span style="color:aliceblue;">打开最进方案</span></template>
-                            <el-menu-item><span style="color:aliceblue;">最近方案一</span></el-menu-item>
-                            <el-menu-item><span style="color:aliceblue;">最近方案二</span></el-menu-item>
-                        </el-sub-menu>
                         <el-menu-item><span style="color:aliceblue;">保存方案</span></el-menu-item>
                         <el-menu-item><span style="color:aliceblue;">方案另存为</span></el-menu-item>
                     </el-sub-menu>

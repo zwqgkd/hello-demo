@@ -6,7 +6,7 @@ const editableTabs = ref([
     {
         title: '流程 1',
         name: '1',
-        content: `<iframe src='#/userLF' width='100%' height="700px"></iframe>`,
+        content: `<iframe src='#/userLF' width='100%' height="800px"></iframe>`,
     }
 ])
 
@@ -16,7 +16,7 @@ const handleTabsEdit = (targetName, action) => {
         editableTabs.value.push({
             title: '流程 '+tabIndex,
             name: newTabName,
-            content: `<iframe src='#/userLF' width='100%' height='700px'></iframe>`
+            content: `<iframe src='#/userLF' width='100%' height='800px'></iframe>`
         })
         editableTabsValue.value = newTabName
     } else if (action === 'remove') {
@@ -40,9 +40,9 @@ const handleTabsEdit = (targetName, action) => {
 
 //iframe自适应高度
 const iframeHeight = ref(0)
-iframeHeight.value = window.innerHeight - 80 - 102
+iframeHeight.value = window.innerHeight - 80 - 102+50
 function dynamicIframeHeight(){
-    iframeHeight.value = window.innerHeight - 80 - 102
+    iframeHeight.value = window.innerHeight - 80 - 102+50
 }
 
 
