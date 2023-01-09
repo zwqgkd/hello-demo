@@ -7,7 +7,9 @@ import {
     RectNode,
     RectNodeModel,
     DiamondNode,
-    DiamondNodeModel
+    DiamondNodeModel,
+    CircleNode,
+    CircleNodeModel
 } from '@logicflow/core'
 import {LeftMenus} from './LeftMenuItems.js'
 import {MiniMap} from './MiniMap.js'
@@ -27,13 +29,15 @@ window.addEventListener('message', function (messageEvent) {
     }
 )
 
-class TriangleModel extends PolygonNodeModel { // 三角形
+class CycleModel extends CircleNodeModel{
+    getNodeStyle() {
+        const style = super.getNodeStyle();
+        style.stroke = 'blue';
+        return style;
+    }
     setAttributes() {
-        this.points = [
-            [50, 0],
-            [100, 80],
-            [0, 80]
-        ]
+        const size = this.properties.scale || 1;
+        this.r=25*size
     }
 }
 
@@ -51,7 +55,6 @@ class ConditionJudgmentModel extends DiamondNodeModel {
         style.stroke = 'blue';
         return style;
     }
-
     setAttributes() {
         const size = this.properties.scale || 1;
         this.rx = 60 * size
@@ -163,10 +166,10 @@ export default {
             // },
 
             lf.batchRegister([
-                { // 三角形节点
-                    type: 'triangle',
-                    view: PolygonNode,
-                    model: TriangleModel
+                { // 圆形结点：标志循环开始循环结束
+                    type: 'cycle',
+                    view: CircleNode,
+                    model: CycleModel
                 },
                 {
                     type: 'diamond',
