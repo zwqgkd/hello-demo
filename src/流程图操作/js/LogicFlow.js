@@ -91,35 +91,32 @@ export default {
             lf: null,
             initHeight: '',
             initData: null,
+            flag:'',
+            edgeModel:'',
             //赋值变量 算子和图形
             suanzis: suanziItemList,
         }
     },
-
+    computed:{
+    },
     mounted() {
         this.initHeight = window.innerHeight
         this.init()
-        //设置条件判断节点锚点开始监听
-        this.lf.on('anchor:dragstart',(evt)=>{
-            let id=evt.data.id
-            id=id.slice(0,id.length-2)
-            //拖拽完成后查看是否为判断节点
-            if(evt.nodeModel.modelType=='diamond-node'){
-                this.lf.on('edge:click',(evt)=>{
-                    window.open('#/conditionJudge')
-                    let edgeId=(evt.data.id)
-                    window.addEventListener('message', (evt) => {
-                        let flag=evt.data.flag
-                        //获取边
-                        let edgeModel=this.lf.getEdgeModelById(edgeId)
-                        //修改边的text
-                        edgeModel.updateText(flag)
-                    })
-                })
 
-            }
+        this.lf.on('edge:click',(evt)=>{
+
+            window.open('#/conditionJudge')
+            let edgeId=(evt.data.id)
+            console.log(edgeId)
+            //获取边
+            this.edgeModel=this.lf.getEdgeModelById(edgeId)
+
         })
-
+        window.addEventListener('message', (evt) => {
+            this.flag=evt.data.flag
+            console.log(this.flag)
+            this.edgeModel.updateText(this.flag)
+        })
         window.onresize = () => {
             return (() => {
                 this.initHeight = window.innerHeight
