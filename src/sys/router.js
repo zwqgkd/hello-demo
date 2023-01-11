@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 
 const router = createRouter({
-    // history: createWebHistory(),
+    //history: createWebHistory(),
     history: createWebHashHistory(),
     // history: process.env.IS_ELECTRON ? createWebHashHistory(process.env.BASE_URL) : createWebHistory(process.env.BASE_URL),
     routes: [
@@ -27,6 +27,11 @@ const router = createRouter({
             path: '/logicFlow',
             name: 'lf',
             component: () => import('@/流程图操作/components/LogicFlow.vue')
+        },
+        {
+            path: '/conditionJudge',
+            name: 'conditionJudge',
+            component: () => import('@/流程图操作/components/dialog/ConditionJudge.vue')
         },
     ]
 })

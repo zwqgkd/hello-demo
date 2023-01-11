@@ -1,10 +1,11 @@
 <template>
     <el-container>
-        <el-aside style="width:100px">
-            <el-menu class="el-menu-vertical" :collapse="true" style="width: 100px">
+        <el-aside style="width:120px">
+            <el-menu class="el-menu-vertical" :collapse="true" style="width: 120px">
                 <!--遍历添加算子菜单块-->
                 <el-sub-menu v-for="(value, key, index1) in suanzis" :index="index1">
                     <template #title>
+                        <el-icon><location/></el-icon>
                         {{key}}
                     </template>
                     <el-menu-item-group>
@@ -35,6 +36,10 @@
     min-height: 400px;
 }
 
+.el-sub-menu__title el-tooltip__trigger{
+    padding-left:10px
+}
+
 .el-menu--popup {
     min-width: 180px;
     width: 180px;
@@ -50,7 +55,6 @@
 .lf-dnd-text {
     font-size: 5px;
     font-weight: bold;
-    text-align: bottom;
     height: 30px;
 }
 

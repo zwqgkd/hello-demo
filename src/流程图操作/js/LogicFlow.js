@@ -66,7 +66,7 @@ class ConditionJudgmentModel extends DiamondNodeModel {
 //读json文件
 //法一
 // $(document).ready(function(){
-//     $.getJSON("data.json",function(result){
+//     $.getJSON("operatorLib.json",function(result){
 //         console.log(result)
 //         //var obj = JSON.parse(result);
 //         //console.log(obj)
@@ -80,7 +80,7 @@ class ConditionJudgmentModel extends DiamondNodeModel {
 //     .then((json)=>console.log(json))
 
 //法三
-import data from './data.json'
+import data from './operatorLib.json'
 
 const suanziItemList = data
 
@@ -99,12 +99,33 @@ export default {
     mounted() {
         this.initHeight = window.innerHeight
         this.init()
+        //设置条件判断节点锚点开始监听
+        this.lf.on('anchor:dragstart',(evt)=>{
+            let id=evt.data.id
+            id=id.slice(0,id.length-2)
+            //拖拽完成后查看是否为判断节点
+            if(evt.nodeModel.modelType=='diamond-node'){
+                this.lf.on('edge:click',(evt)=>{
+                    window.open('#/conditionJudge')
+                    let edgeId=(evt.data.id)
+                    window.addEventListener('message', (evt) => {
+                        let flag=evt.data.flag
+                        //获取边
+                        let edgeModel=this.lf.getEdgeModelById(edgeId)
+                        //修改边的text
+                        edgeModel.updateText(flag)
+                    })
+                })
+
+            }
+        })
+
         window.onresize = () => {
             return (() => {
                 this.initHeight = window.innerHeight
                 this.lf.render(this.lf.getGraphData())
-                const position = lf.getPointByClient(document.documentElement.clientWidth - 150, document.documentElement.clientHeight - 230)
-                lf.extension.miniMap.show(position.domOverlayPosition.x, position.domOverlayPosition.y)
+                const position = this.lf.getPointByClient(document.documentElement.clientWidth - 150, document.documentElement.clientHeight - 230)
+                this.lf.extension.miniMap.show(position.domOverlayPosition.x, position.domOverlayPosition.y)
             })
         }
     },
@@ -126,44 +147,6 @@ export default {
                     visible: true // 是否可见
                 }
             })
-            //设置节点点击事件监听, 修改帮助信息
-            lf.on('node:click', (data) => {
-                //调用事件响应函数，做出响应
-                const msg_key = data.data.properties.key
-                eventHandle(events.msg_singleStepOpr, {msg_key})//单步运算->key
-
-                //iframe给父组件传递消息方法
-                window.parent.postMessage({nodeHelpMsg: data.data.properties.helpMsg});
-                console.log(JSON.stringify(data.data.text.value) + " is clicked. run some method related to label or type or id... and it's properties taht we can modify are: " + JSON.stringify(data.data.properties))
-                //原生修改html元素方法
-                // window.parent.document.getElementById("pane-third").innerText = data.data.properties.helpMsg
-            })
-
-            // 设置算子面板
-            var suanziItemListConcat = []
-            for (var i in suanziItemList) {
-                suanziItemListConcat = suanziItemListConcat.concat(suanziItemList[i])
-            }
-            lf.extension.leftMenus.setPatternItems(suanziItemListConcat)
-
-            //设置条件判断节点锚点开始监听
-            lf.on('anchor:dragstart',(evt)=>{
-                if(evt.nodeModel.modelType=='diamond-node'){
-                    //如果判断节点的锚点连线结束
-                    lf.on('anchor:dragend',()=>{
-                        //输入文本到连线上
-                        console.log(1)
-                    })
-                }
-            })
-
-            // // 设置节点面板, 设置框选回调
-            // suanziItemList['控制模块'][0].callback = () => {
-            //     lf.openSelectionSelect();
-            //     lf.once("selection:selected", () => {
-            //         //lf.closeSelectionSelect();
-            //     });
-            // },
 
             lf.batchRegister([
                 { // 圆形结点：标志循环开始循环结束
@@ -183,6 +166,36 @@ export default {
                 }
 
             ])
+            //设置节点点击事件监听, 修改帮助信息
+            lf.on('node:click', (data) => {
+                //调用事件响应函数，做出响应
+                const msg_key = data.data.properties.key
+                eventHandle(events.msg_singleStepOpr, {msg_key})//单步运算->key
+
+                //iframe给父组件传递消息方法
+                window.parent.postMessage({nodeHelpMsg: data.data.properties.helpMsg});
+                console.log(JSON.stringify(data.data.text.value) + " is clicked. run some method related to label or type or id... and it's properties taht we can modify are: " + JSON.stringify(data.data.properties))
+                //原生修改html元素方法
+                // window.parent.document.getElementById("pane-third").innerText = data.data.properties.helpMsg
+
+            })
+
+            // 设置算子面板
+            var suanziItemListConcat = []
+            for (var i in suanziItemList) {
+                suanziItemListConcat = suanziItemListConcat.concat(suanziItemList[i])
+            }
+            lf.extension.leftMenus.setPatternItems(suanziItemListConcat)
+
+
+            // // 设置节点面板, 设置框选回调
+            // suanziItemList['控制模块'][0].callback = () => {
+            //     lf.openSelectionSelect();
+            //     lf.once("selection:selected", () => {
+            //         //lf.closeSelectionSelect();
+            //     });
+            // },
+
 
             lf.extension.control.addItem({
                 text: "下载快照",
