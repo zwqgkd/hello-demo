@@ -21,6 +21,8 @@ const handleOpen = (key, keyPath) => {
 const handleClose = (key, keyPath) => {
     console.log(key, keyPath)
 }
+//初始化socketio用于前后端传输
+let socket = io.connect('http://localhost:9092')
 
 //收到父页面传输的数据
 window.addEventListener('message', function (messageEvent) {
@@ -252,8 +254,60 @@ export default {
         downloadXML() {
             console.log(this.lf.getGraphData())
             this.download('flow.xml', lfJson2Xml(this.lf.getGraphData()))
+            //前端开始运行逻辑不完善，因此将流程图json传到后端的语句写在这里了，以后实际开发的时候进行调整
+            console.log(this.lf.getGraphData());
+            socket.emit('flowInformation',this.lf.getGraphData());
         }
     },
 
+    //////////////////////YUANZHENG SOCKETIO TEST/////////////////
+    //此处为前后端通信函数，因为前端UI逻辑还未完善，先放在这里，以后用的时候进行调整
+    //具体逻辑为socketio.emit('参数名',json格式的参数);后端建立对应的监听器接收并进行下一步处理
+    //有问题问袁征
+    socketioNum(){
+        var jsonObject = {userName: "Num",
+            message: 1024,
+        };
+        socket.emit('chatevent', jsonObject);
+    },
+    socketioInt(){
+        var jsonObject = {userName: "Int",
+            message: 2048,
+        };
+        socket.emit('chatevent', jsonObject);
+    },
+    socketioDou(){
+        var jsonObject = {userName: "Dou",
+            message: 10.24,
+        };
+        socket.emit('chatevent', jsonObject);
+    },
+    socketioFlt(){
+        var jsonObject = {userName: "Flt",
+            message: 102.4,
+        };
+        socket.emit('chatevent', jsonObject);
+    },
+    socketioStr(){
+        var jsonObject = {userName: "Str",
+            message: "Hello Yuan Zheng!!!!!!",
+        };
+        socket.emit('chatevent', jsonObject);
+    },
+    socketioPic(){
+        let base64Img
+        let Img = this.$refs.imgUrl.files[0]
+        let reader = new FileReader()
+        reader.readAsDataURL(Img)
+        reader.onload=function (){
+            var jsonObject = {userName: "Pic",
+                message: this.result,
+            };
+            base64Img = this.result
+            socket.emit('chatevent', jsonObject);
+            console.log(this.result)
+        }
+    }
+    //////////////////////////////////////////////////////////////
 }
 
