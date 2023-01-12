@@ -91,7 +91,7 @@ export default {
             lf: null,
             initHeight: '',
             initData: null,
-            flag:'',
+            nodeModel:'',
             edgeModel:'',
             //赋值变量 算子和图形
             suanzis: suanziItemList,
@@ -102,20 +102,47 @@ export default {
     mounted() {
         this.initHeight = window.innerHeight
         this.init()
+        //设置节点点击事件监听, 修改帮助信息
+        this.lf.on('node:click', (evt) => {
+            //刷新nodeModel
+            this.nodeModel=this.lf.getNodeModelById(evt.data.id)
+            let type=this.nodeModel.getProperties().type
 
+            if(type=="conditionJudge"||type=="cycleStart"){
+                window.open('#/conditionNode')
+            }
+
+
+            //调用事件响应函数，做出响应
+            const msg_key = evt.data.properties.key
+            eventHandle(events.msg_singleStepOpr, {msg_key})//单步运算->key
+
+            //iframe给父组件传递消息方法
+            window.parent.postMessage({nodeHelpMsg: evt.data.properties.helpMsg});
+            console.log(JSON.stringify(evt.data.text.value) + " is clicked. run some method related to label or type or id... and it's properties taht we can modify are: " + JSON.stringify(data.data.properties))
+            //原生修改html元素方法
+            // window.parent.document.getElementById("pane-third").innerText = evt.data.properties.helpMsg
+
+        })
         this.lf.on('edge:click',(evt)=>{
-
-            window.open('#/conditionJudge')
+            window.open('#/conditionEdge')
             let edgeId=(evt.data.id)
-            console.log(edgeId)
             //获取边
             this.edgeModel=this.lf.getEdgeModelById(edgeId)
 
         })
+
         window.addEventListener('message', (evt) => {
-            this.flag=evt.data.flag
-            console.log(this.flag)
-            this.edgeModel.updateText(this.flag)
+            if(evt.data.flag){
+                //修改边的文本
+                this.edgeModel.updateText(evt.data.flag)
+            }
+            if(evt.data.conditionValue){
+                //修改节点的值
+                this.nodeModel.setProperties({
+                    value:evt.data.conditionValue
+                })
+            }
         })
         window.onresize = () => {
             return (() => {
@@ -163,19 +190,6 @@ export default {
                 }
 
             ])
-            //设置节点点击事件监听, 修改帮助信息
-            lf.on('node:click', (data) => {
-                //调用事件响应函数，做出响应
-                const msg_key = data.data.properties.key
-                eventHandle(events.msg_singleStepOpr, {msg_key})//单步运算->key
-
-                //iframe给父组件传递消息方法
-                window.parent.postMessage({nodeHelpMsg: data.data.properties.helpMsg});
-                console.log(JSON.stringify(data.data.text.value) + " is clicked. run some method related to label or type or id... and it's properties taht we can modify are: " + JSON.stringify(data.data.properties))
-                //原生修改html元素方法
-                // window.parent.document.getElementById("pane-third").innerText = data.data.properties.helpMsg
-
-            })
 
             // 设置算子面板
             var suanziItemListConcat = []
@@ -236,6 +250,7 @@ export default {
             this.lf.getSnapshot()
         },
         downloadXML() {
+            console.log(this.lf.getGraphData())
             this.download('flow.xml', lfJson2Xml(this.lf.getGraphData()))
         }
     },

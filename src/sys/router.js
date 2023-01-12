@@ -29,9 +29,14 @@ const router = createRouter({
             component: () => import('@/流程图操作/components/LogicFlow.vue')
         },
         {
-            path: '/conditionJudge',
-            name: 'conditionJudge',
-            component: () => import('@/流程图操作/components/dialog/ConditionJudge.vue')
+            path: '/conditionEdge',
+            name: 'conditionEdge',
+            component: () => import('@/流程图操作/components/dialog/ConditionEdgeDialog.vue')
+        },
+        {
+            path: '/conditionNode',
+            name: 'conditionNode',
+            component: () => import('@/流程图操作/components/dialog/ConditionNodeDialog.vue')
         },
     ]
 })
